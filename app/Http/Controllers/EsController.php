@@ -1,0 +1,123 @@
+<?php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\CitizenComplain;
+use App\Models\Tasker;
+use App\Models\Es;
+use App\Models\esfile;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class EsController extends Controller
+{
+    public function dashboard(){
+    	return view('users.Es.Es');
+    }
+
+    //fetch data of allcomplains toi e/s
+    public function CitizenComplains(){
+    	$data=CitizenComplain::where('forward',null)->paginate(5);
+        $counts=collect($data)->count();
+    	return view('users\es\forwardComplains', compact('data','counts'));
+    }
+
+    public function forwardComplains($id){
+        $comp_id=$id;
+        $yes='forwarded';
+        date_default_timezone_set('Africa/Kigali');
+        $date_fwd=date('d-m-Y');
+        $time_fwd=date('H:i:s');
+        $forwarding=DB::table('citizen_complains')->where('id',$comp_id)
+                ->update(['forward' =>$yes,'date_co' =>$date_fwd,'time_co' =>$time_fwd,]);
+
+        return redirect()->back()->with('forwarded','Complain forwarded successfully !');
+    	
+    } 
+
+    public function SolvedComplains(){
+        $data=CitizenComplain::where('complains_reply','!=',null)->where('decision','!=',null)->paginate(5);
+        return view('users\es\SolvedComplains', compact('data'));
+    }
+
+    public function UnsolvedComplains(){
+        $data=CitizenComplain::where('forward','!=',null)->where('complains_reply',null)->where('decision',null)->paginate(5);
+        return view('users\es\UnsolvedComplains', compact('data'));
+    }
+
+    public function ViewStaff(){
+        $staffdata=Tasker::paginate(5);
+        return view('users\es\ViewStaff', compact('staffdata'));
+    }
+
+     public function Myinformation(){
+        $info=Es::all();
+        return view('users\es\myinformation',compact('info'));
+    }
+
+
+    public function formdocument(){
+        return view('users\es\CreateDocument');
+    }
+
+    public function CreateDocument(Request $request){
+
+            
+            $request->validate([
+                'name' => 'required',
+                'image' => 'required|mimes:jpg,jpeg,png,pdf,zip,gif,docs,docx,csv,pptx',
+                'content' => 'required|max:200',
+            ]);
+
+            $datas=new esfile;
+            $datas->name = $request->name;
+
+            if($request->hasFile('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $extenstion = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/es/document/'), $filename);
+                $datas['image']= $filename;
+            }
+                
+            $datas->content = $request->content;
+            $datas->save();
+
+        return redirect()->back()->with('file_added','New file added successfully !');
+    }
+
+    public function ViewDocument(){
+        $filedata=esfile::paginate(5);
+        return view('users\es\ViewDocument', compact('filedata'));
+    }
+
+    public function ManagePassword(){
+        return view('users\es\password');
+    }
+
+    public function CreatePassword(Request $request){
+           # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8|max:100',
+        ]);
+
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->guard('es')->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        Es::whereId(auth()->guard('es')->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("status", "Password changed successfully!");
+
+    }
+
+    public function ManageProfile(){}
+
+}
