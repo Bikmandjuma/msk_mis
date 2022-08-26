@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Hash;
 class EsController extends Controller
 {
     public function dashboard(){
-    	return view('users.Es.Es');
+    	return view('users.es.Es');
     }
 
     //fetch data of allcomplains toi e/s
     public function CitizenComplains(){
     	$data=CitizenComplain::where('forward',null)->paginate(5);
         $counts=collect($data)->count();
-    	return view('users\es\forwardComplains', compact('data','counts'));
+    	return view('users.es.forwardComplains', compact('data','counts'));
     }
 
     public function forwardComplains($id){
@@ -37,27 +37,27 @@ class EsController extends Controller
 
     public function SolvedComplains(){
         $data=CitizenComplain::where('complains_reply','!=',null)->where('decision','!=',null)->paginate(5);
-        return view('users\es\SolvedComplains', compact('data'));
+        return view('users.es.SolvedComplains', compact('data'));
     }
 
     public function UnsolvedComplains(){
         $data=CitizenComplain::where('forward','!=',null)->where('complains_reply',null)->where('decision',null)->paginate(5);
-        return view('users\es\UnsolvedComplains', compact('data'));
+        return view('users.es.UnsolvedComplains', compact('data'));
     }
 
     public function ViewStaff(){
         $staffdata=Tasker::paginate(5);
-        return view('users\es\ViewStaff', compact('staffdata'));
+        return view('users.es.ViewStaff', compact('staffdata'));
     }
 
      public function Myinformation(){
         $info=Es::all();
-        return view('users\es\myinformation',compact('info'));
+        return view('users.es.myinformation',compact('info'));
     }
 
 
     public function formdocument(){
-        return view('users\es\CreateDocument');
+        return view('users.es.CreateDocument');
     }
 
     public function CreateDocument(Request $request){
@@ -88,11 +88,11 @@ class EsController extends Controller
 
     public function ViewDocument(){
         $filedata=esfile::paginate(5);
-        return view('users\es\ViewDocument', compact('filedata'));
+        return view('users.es.ViewDocument', compact('filedata'));
     }
 
     public function ManagePassword(){
-        return view('users\es\password');
+        return view('users.es.password');
     }
 
     public function CreatePassword(Request $request){
@@ -117,7 +117,5 @@ class EsController extends Controller
         return back()->with("status", "Password changed successfully!");
 
     }
-
-    public function ManageProfile(){}
 
 }

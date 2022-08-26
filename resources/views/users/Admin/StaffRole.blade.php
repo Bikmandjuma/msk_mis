@@ -1,4 +1,4 @@
-@extends('users.admin.Cover')
+@extends('users.Admin.Cover')
 @section('content')
 <br>
 <div class="container">

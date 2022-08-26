@@ -1,4 +1,4 @@
-@extends('users.admin.Cover')
+@extends('users.Admin.Cover')
 @section('content')
 @php
 use App\Models\TaskerRole;

@@ -10,7 +10,7 @@ use App\Models\CitizenComplain;
 class TaskerController extends Controller
 {
     public function dashboard(){
-    	return view('users.Tasker.Tasker');
+    	return view('users.tasker.Tasker');
     }
 
 
