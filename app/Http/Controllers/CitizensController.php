@@ -48,8 +48,8 @@ class CitizensController extends Controller
 		return redirect()->back()->with('complain_sent','Wohereje neza !');
     }
 
-    function StaffMememberfn(){
-        $staffdata=Tasker::all();
-        return view('page.homepage',compact('staffdata'));
-    }
+    // function StaffMememberfn(){
+    //     $staffdata=Tasker::all();
+    //     return view('page.homepage',compact('staffdata'));
+    // }
 }

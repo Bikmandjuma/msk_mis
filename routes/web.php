@@ -22,8 +22,6 @@ Route::get('Citizen/Complains', function () {
 })->name('citizen_complains');
 
 //staff member on homepage
-Route::get('/','App\Http\Controllers\CitizensController@StaffMememberfn');
-
 
 Route::get('login','App\Http\Controllers\AuthController@GetLogin')->name('Login');
 Route::post('Submit_login_data', 'App\Http\Controllers\AuthController@PostLogin')->name('LoginPost');

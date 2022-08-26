@@ -52,8 +52,8 @@
                          <li><a href="{{url('/')}}" class="smoothScroll">Home</a></li>
                          <li><a href="{{url('/')}}#about" class="smoothScroll">About</a></li>
                          <li><a href="{{route('citizen_complains')}}" class="smoothScroll">Citizen Complains</a></li>
-                         <li><a href="{{url('/')}}#staff" class="smoothScroll">Staff</a></li>
-                         <li><a href="{{url('/')}}#contact" class="smoothScroll">Contact</a></li>
+<!--                          <li><a href="{{url('/')}}#staff" class="smoothScroll">Staff</a></li>
+ -->                         <li><a href="{{url('/')}}#contact" class="smoothScroll">Contact</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

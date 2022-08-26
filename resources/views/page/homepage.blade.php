@@ -47,8 +47,8 @@
                          <li><a href="#top" class="smoothScroll">Home</a></li>
                          <li><a href="#about" class="smoothScroll">About</a></li>
                          <li><a href="{{route('citizen_complains')}}" class="smoothScroll">Citizens Complains</a></li>
-                         <li><a href="#staff" class="smoothScroll">Staff</a></li>
-                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
+<!--                          <li><a href="#staff" class="smoothScroll">Staff</a></li>
+ -->                         <li><a href="#contact" class="smoothScroll">Contact</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -202,39 +202,14 @@
           <div class="container">
                <div class="row">
 
-                    <div class="col-md-12 col-sm-12">
+                    <!-- <div class="col-md-12 col-sm-12">
                          <div class="section-title">
                               <h2>Staff <small>All staff</small></h2>
                          </div>
 
-                         <div class="owl-carousel owl-theme owl-courses">
-                              @foreach($staffdata as $data)
-                              <div class="col-md-3 col-sm-3">
-                                   <div class="container">
-                                        <div class="row">
-                                             <div class="col-md-4 mx-auto">
-                                                  <div id="first">
-                                                       <div class="myform_login form ">
-                                                       <div class="logo mb-3" style="background-color:teal;">
-                                                          <div class="col-md-12 text-center text-white">
-                                                            <p style="color: white;">{{$data->firstname}}&nbsp;{{$data->firstname}}</p>
-                                                           </div>
-                                                        </div>
-
-                                                        <img src="{{URL::to('/')}}/images/{{$data->image}}" style="width:40px;height:40px;border-radius:50px;">
-                                                        <div class="row">
-                                                             <div class="col-sm-6">{{$data->email}}</div>
-                                                             <div class="col-sm-6">{{$data->phone}}</div>
-                                                        </div>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div> 
-                                   </div>  
-                              </div>
-                             @endforeach 
+                         <div class="owl-carousel owl-theme owl-courses"> 
                          </div>
-                    </div>
+                    </div> -->
                </div>
           </div>
      </section>
