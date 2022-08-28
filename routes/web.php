@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('Citizen/Complains', function () {
-    return view('Citizen_Complains');
+Route::get('cool', function () {
+    return view('users.citizen.Complains');
 })->name('citizen_complains');
 
 //staff member on homepage

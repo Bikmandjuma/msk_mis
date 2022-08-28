@@ -12,13 +12,10 @@ $role_name=TaskerRole::all();
         <div class="col-md-2"></div>
         <div class="col-md-8">
             @if(session('create_tasker'))
-              <span style="color:blue;">{{session('create_tasker')}}</span>
+                <div class="alert alert_success" style="text-align:center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times; </button>
+                <strong>{{session('create_tasker')}}</strong>
+                </div>
             @endif
-
-            @if(session('error_create_tasker'))
-              <span style="color:red;">{{session('error_create_tasker')}}</span>
-            @endif
-
             <div class="card">
               <div class="card-header text-center bg-info">Register staff member</div>
               <div class="card-body">

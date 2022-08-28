@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row">
           <div class="col-md-6">
+              @if(session('role_added'))
+                    <div class="alert alert_success" style="text-align:center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times; </button>
+                    <strong>{{session('role_added')}}</strong>
+                    </div>
+              @endif
             <div class="card">
               <div class="card-header text-center bg-info">Register staff role</div>
               <div class="card-body">

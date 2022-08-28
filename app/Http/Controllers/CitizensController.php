@@ -19,13 +19,13 @@ class CitizensController extends Controller
             'docs[]' => 'mimes:jpg,jpeg,png,pdf',
         ],
         [
-        	'names.required' => 'Uzuzamo amazina yawe yombi !',
-        	'phone.required' => 'Uzuzamo nimero ya telephone yawe !',
-        	'phone.numeric' => 'Nimero ya telephone igomba kuba ari imibare gusa !',
-        	'phone.digits' => 'Nimero ya telephone igomba kuba imibare 10 !',
-        	'role_id.required' => 'Hitamo ubishinzwe !',
-        	'complains.required' => 'Andika ikibazo ufite !',
-        	'docs[].mimes' => 'Shyiramo ifoto ya format ya jpg,jpeg,png cyangwa pdf !',
+        	'names.required' => 'Uzuzamo amazina yawe yombi *',
+        	'phone.required' => 'Uzuzamo nimero ya telephone yawe *',
+        	'phone.numeric' => 'Nimero ya telephone igomba kuba ari imibare gusa *',
+        	'phone.digits' => 'Nimero ya telephone igomba kuba ari imibare 10 *',
+        	'role_id.required' => 'Hitamo ubishinzwe *',
+        	'complains.required' => 'Andika ikibazo ufite *',
+        	'docs[].mimes' => 'Shyiramo ifoto ya format ya jpg,jpeg,png cyangwa pdf *',
         ]);		
 
     	$data=new CitizenComplain;

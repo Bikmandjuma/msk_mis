@@ -4,20 +4,21 @@
 	use Illuminate\Support\Facades\DB;
 	use App\Models\CitizenComplain;
 @endphp
+<?php  
+	$data_counts=CitizenComplain::all()->where('forward','');
+    $counts=collect($data_counts)->count();
+?>
 <br>
 
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
-	<?php  
-		$data_counts=CitizenComplain::all()->where('forward','');
-        $counts=collect($data_counts)->count();
-	?>
-			@if(session('forwarded'))
-		            <div class="alert alert_success" style="margin-left:20px;text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
-		              <strong>{{session('forwarded')}}</strong>
-		            </div><br>
-		    @endif
+	
+		@if(session('forwarded'))
+		       <div class="alert alert_success" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+		         <strong>{{session('forwarded')}}</strong>
+		       </div><br>
+		@endif
 		<div class="card">
 			<div class="card-header text-center bg-info">Citizen complains</div>
 			<div class="card-body" style="overflow:auto;">

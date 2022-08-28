@@ -18,7 +18,7 @@ class AdminController extends Controller
             'role_name' => 'required|string|unique:tasker_roles,name',
         ],
         [
-        	'role_name.unique' => 'This role name already registered !',
+        	'role_name.unique' => '* This role name already registered *',
         ]);
 
         TaskerRole::create([
