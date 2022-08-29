@@ -46,7 +46,7 @@ class EsController extends Controller
     }
 
     public function ViewStaff(){
-        $staffdata=Tasker::paginate(5);
+        $staffdata=Tasker::paginate(4);
         return view('users.es.ViewStaff', compact('staffdata'));
     }
 

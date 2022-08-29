@@ -50,16 +50,14 @@
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>     
-                                        <li><i class="fas fa-map-marker-alt"></i>Kigali ,gasabo ,masaka sector office</li>
-                                        <li><i class="fas fa-envelope"></i>ouremail@gmail.com</li>
-                                        <li><i class="fas fa-phone"></i>+250781234567</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>Kigali ,Kicukiro ,Masaka </li>
+                                        <!-- <li><i class="fas fa-envelope"></i>ouremail@gmail.com</li> -->
+                                        <li><i class="fas fa-phone"></i>+250788862020</li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">    
-                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                        <li> <a href="#"><i class="fab fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
@@ -73,21 +71,22 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
-                                </div>
+                                MASAKA SECTOR
+<!--                                   <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+ -->                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">              
-                                            <li><a href="{{url('/')}}">Home</a></li>
-                                            <li><a href="{{url('About')}}">About Us</a></li>
-                                            <li><a href="{{url('Services')}}">Services</a></li>
-                                            <li><a href="{{url('Staff/Members')}}">Staff</a></li>
-                                            <li><a href="{{url('cool')}}">Citizen complain</a></li>
-                                            <li><a href="{{url('ContactUs')}}">Contact Us</a></li>
-                                            <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li>
+                                            <li><a href="{{url('/')}}">Ahabanza</a></li>
+                                            <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
+                                            <li><a href="{{url('Services')}}">Serivise</a></li>
+                                            <li><a href="{{url('Staff')}}">Abakozi</a></li>
+                                            <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
+                                            <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
+                                            <!-- <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li> -->
                                         </ul>
                                     </nav>
                                 </div>
@@ -107,58 +106,10 @@
 
      <section id="login_panel">
           <main>
-               @yield('content');
+               @yield('content')
           </main>
      </section>       
 
-
-        <!-- Request Back Start -->
-        <div class="request-back-area section-padding30">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-4 col-lg-5 col-md-5">
-                        <div class="request-content">
-                            <h3>Leave comment</h3>
-                            <p>write comment due to the service our office's staff provide !</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-7 col-lg-7 col-md-7">
-                        <!-- Contact form Start -->
-                        <div class="form-wrapper">
-                            <form id="contact-form" action="#" method="POST">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-box  mb-30">
-                                            <input type="text" name="name" placeholder="Name" class="form-control">
-                                        </div>
-
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Staff</option>
-                                                <option value="">Services-1</option>
-                                                <option value="">Services-2</option>
-                                                <option value="">Services-3</option>
-                                            </select>
-                                        </div>
-                                        &nbsp;
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="form-box mb-30">
-                                            <textarea type="text" rows="4" name="comment" placeholder="write comment here . . . " class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="col-lg-12 col-md-12 text-center">
-                                        <button type="submit" class="send-btn">Send</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>     <!-- Contact form End -->
-                </div>
-            </div>
-        </div>
-        <!-- Request Back End -->
 
    <footer>
        <!-- Footer Start-->
@@ -179,9 +130,7 @@
                             </div>
                             <!-- social -->
                             <div class="footer-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
                                  <a href="#"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
@@ -190,14 +139,14 @@
                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Office</h4>
+                               <h4>Kanda hano</h4>
                                <ul>
-                                   <li><a href="{{url('/')}}">Home</a></li>
-                                   <li><a href="{{url('About')}}">About Us</a></li>
-                                   <li><a href="{{url('Services')}}">Services</a></li>
-                                   <li><a href="{{url('Staff/Members')}}">Staff</a></li>
-                                   <li><a href="{{url('cool')}}">Citizen complain</a></li>
-                                   <li><a href="{{url('ContactUs')}}">Contact Us</a></li>
+                                   <li><a href="{{url('/')}}">Ahabanza</a></li>
+                                   <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
+                                   <li><a href="{{url('Services')}}">Serivise</a></li>
+                                   <li><a href="{{url('Staff')}}">Abakozi</a></li>
+                                   <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
+                                   <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
                                    <li><a href="{{route('Login')}}">Login</a></li>
                                </ul>
                            </div>
@@ -206,7 +155,7 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Services</h4>
+                               <h4>Serivise</h4>
                                <ul>
                                    <li>
                                         <p>
@@ -220,11 +169,11 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Get in Touch</h4>
+                               <h4>Aho wadusanga (address)</h4>
                                <ul>
-                                <li><a href="#"><i class="fas fa-phone"></i> +250781234567</a></li>
-                                <li><a href="#"><i class="fas fa-envelope"></i> ouremail@gmail.com</a></li>
-                                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Kigali ,Gasabo ,masaka ,sector office</a></li>
+                                <li><a href="#"><i class="fas fa-phone"></i> +250788862020</a></li>
+                                <!-- <li><a href="#"><i class="fas fa-envelope"></i> ouremail@gmail.com</a></li> -->
+                                <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
                             </ul>
                            </div>
                        </div>

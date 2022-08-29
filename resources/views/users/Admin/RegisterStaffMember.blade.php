@@ -16,6 +16,13 @@ $role_name=TaskerRole::all();
                 <strong>{{session('create_tasker')}}</strong>
                 </div>
             @endif
+
+            @if(session('role'))
+                <div class="alert alert_danger" style="text-align:center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times; </button>
+                <strong>{{session('role')}}</strong>
+                </div>
+            @endif
+
             <div class="card">
               <div class="card-header text-center bg-info">Register staff member</div>
               <div class="card-body">
@@ -53,8 +60,9 @@ $role_name=TaskerRole::all();
                         @foreach($role_name as $item)
                           <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
+                      </select>
                       <span style="color:red;">@error('role') {{$message}}<br> @enderror</span>
-                      </select><br>
+                      <br>
                       <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
                       <button class="btn btn-danger" type="reset">Reset</button>
                     </div>

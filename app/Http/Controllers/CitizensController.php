@@ -48,8 +48,18 @@ class CitizensController extends Controller
 		return redirect()->back()->with('complain_sent','Wohereje neza !');
     }
 
-    // function StaffMememberfn(){
-    //     $staffdata=Tasker::all();
-    //     return view('page.homepage',compact('staffdata'));
-    // }
+    function createComment(Request $request){
+
+         $this->validate($request,[
+            'name' => 'required|string',
+            'comment' => 'required|string|max:255',
+        ],[
+            'name.required'=>'* Uzuzamo amazina yawe *',
+            'comment.required'=>'* Andika cooment *',
+        ]);
+        // $staffdata=cooment::create([
+
+        // ]);
+        // return view('page.homepage',compact('staffdata'));
+    }
 }

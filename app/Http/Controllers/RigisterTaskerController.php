@@ -19,8 +19,10 @@ class RigisterTaskerController extends Controller
             'gender' => 'required',
             'phone' => 'required|numeric|min:10|unique:taskers,phone',
             'email' => 'required|string|email|max:255|unique:taskers,email',
-            'role' => 'required',
+            'role' => 'required|unique:taskers,role_id',
             'national_id' => 'required|numeric|min:16|unique:taskers,nat_id',
+        ],[
+            'role.unique'=>'Staff member with this role is already registered'
         ]);
     
         $image='user.png';

@@ -21,6 +21,24 @@ Route::get('cool', function () {
     return view('users.citizen.Complains');
 })->name('citizen_complains');
 
+Route::get('About', function () {
+    return view('about');
+});
+
+Route::get('Services', function () {
+    return view('service');
+});
+
+Route::get('Staff', function () {
+    return view('staff');
+});
+
+
+Route::get('ContactUs', function () {
+    return view('contact');
+});
+
+
 //staff member on homepage
 
 Route::get('login','App\Http\Controllers\AuthController@GetLogin')->name('Login');

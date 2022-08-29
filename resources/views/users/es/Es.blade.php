@@ -26,6 +26,7 @@ $solved_counts=collect($solved_comp)->count();
     <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('es/viewstaff')}}">
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{$staff_count}}</h3>
@@ -35,11 +36,13 @@ $solved_counts=collect($solved_comp)->count();
                 <i class="ion ion-ios-person"></i>
               </div>
             </div>
+            </a>
           </div>
           
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('es/dashboard')}}">
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$cit_counts}}</h3>
@@ -49,11 +52,13 @@ $solved_counts=collect($solved_comp)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('es/solved/complains')}}">
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>{{$solved_counts}}</h3>
@@ -63,11 +68,13 @@ $solved_counts=collect($solved_comp)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('es/unsolved/complains')}}">
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{$unsolved_counts}}</h3>
@@ -77,6 +84,7 @@ $solved_counts=collect($solved_comp)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
     </div>

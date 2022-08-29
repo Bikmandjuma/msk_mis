@@ -84,7 +84,7 @@
                                             <li><a href="{{url('/')}}">Home</a></li>
                                             <li><a href="{{url('About')}}">About Us</a></li>
                                             <li><a href="{{url('Services')}}">Services</a></li>
-                                            <li><a href="{{url('Staff/Members')}}">Staff</a></li>
+                                            <li><a href="{{url('Staff')}}">Staff</a></li>
                                             <li><a href="{{url('cool')}}">Citizen complain</a></li>
                                             <li><a href="{{url('ContactUs')}}">Contact Us</a></li>
                                         </ul>
@@ -194,7 +194,7 @@
                                       <li><a href="{{url('/')}}">Home</a></li>
                                       <li><a href="{{url('About')}}">About Us</a></li>
                                       <li><a href="{{url('Services')}}">Services</a></li>
-                                      <li><a href="{{url('Staff/Members')}}">Staff</a></li>
+                                      <li><a href="{{url('Staff')}}">Staff</a></li>
                                       <li><a href="{{url('cool')}}">Citizen complain</a></li>
                                       <li><a href="{{url('ContactUs')}}">Contact Us</a></li>
                                       <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li>

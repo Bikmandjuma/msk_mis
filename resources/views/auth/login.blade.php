@@ -1,4 +1,4 @@
-@extends('auth.Cover')
+@extends('users.citizen.Cover')
 @section('content')
 <br>
     <div class="row">
@@ -60,4 +60,5 @@
       </div>
       <div class="col-xl-4 col-lg-4 col-md-6"></div>
     </div>
+    <br>
 @endsection
