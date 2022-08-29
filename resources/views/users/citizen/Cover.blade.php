@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">    
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a></li>
                                        <li> <a href="#"><i class="fab fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
@@ -71,7 +71,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                MASAKA SECTOR
+                                <h3><b>MASAKA&nbsp;SECTOR</b></h3>
 <!--                                   <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
  -->                                </div>
                             </div>
@@ -130,7 +130,7 @@
                             </div>
                             <!-- social -->
                             <div class="footer-social">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
                                  <a href="#"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>

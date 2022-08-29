@@ -105,12 +105,12 @@
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;padding-right:20px;border:2px solid white;">
-           <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+           <a href="{{url('tasker/form/password')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-key mr-2"></i>&nbsp;
             Password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+          <a href="{{url('tasker/manage/profile/picture')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
            Profile
           </a>
@@ -212,14 +212,14 @@
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                  <a href="{{url('addcategory')}}" class="nav-link">
+                  <a href="{{url('tasker/form/Files')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Add files(docs)</p>
                   </a>
               </li>
 
               <li class="nav-item">
-                  <a href="" class="nav-link">
+                  <a href="{{url('tasker/view/files')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>View files(docs)</p>
                   </a>

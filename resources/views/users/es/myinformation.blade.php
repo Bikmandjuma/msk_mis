@@ -16,7 +16,7 @@
               <div class="card-body" style="overflow: auto;">
                       <div class="row">
                         <div class="col-sm-6 text-center">
-                            <img src="{{URL::to('/')}}/images/{{$data->image}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border-radius:50%;">
+                            <img src="{{URL::to('/')}}/images/{{$data->image}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border:2px solid skyblue;">
                         </div>
 
                         <div class="col-sm-6">

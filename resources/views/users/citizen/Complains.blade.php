@@ -63,7 +63,12 @@ $roles=TaskerRole::all();
                                              <span style="color:red;">@error('docs') {{$message}} @enderror</span>
                                              <br>
                                              <br>
-                                             <button class="btn btn-danger" name="submit">Ohereza</button>           
+                                             <style>
+                                               #ohereza:hover{
+                                                  cursor:pointer;
+                                               }
+                                             </style>
+                                             <button id="ohereza" style="background-color:#295684;padding:10px;color:white;border-radius:10px;" name="submit">Ohereza</button>           
                                         </div>
                                       </div>
                                     </form>

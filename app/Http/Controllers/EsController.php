@@ -118,4 +118,34 @@ class EsController extends Controller
 
     }
 
+    function ManageProfile(){
+        return view('users.es.profile');
+    }
+
+    public function CreateProfile(Request $request){
+        $id=auth()->guard('es')->user()->id;
+        
+        $request->validate([
+            'profile_picture' => 'mimes:jpg,jpeg,png,pdf',
+        ],[
+            'profile_picture.mimes'=>'profile picture must be in format of jpg,jpeg,png or pdf',
+        ]);
+
+
+        $file= $request->file('profile_picture');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $extenstion = $file->getClientOriginalExtension();
+        $file-> move(public_path('images/'), $filename);
+        $profile=Es::find($id)->update(['image'=>$filename]);
+
+        if ($profile) {
+            return redirect()->back()->with('profile_changed','profile changed  successfully !');
+        }else{
+            return redirect()->back()->with('profile_error','profile picture must be in format of jpg,jpeg,png or pdf');
+
+        }
+        
+    }
+
 }
+

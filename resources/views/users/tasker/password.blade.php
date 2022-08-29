@@ -1,4 +1,4 @@
-@extends('users.es.Cover')
+@extends('users.tasker.Cover')
 @section('content')
 <br>
 <div class="row">
@@ -14,7 +14,7 @@
 		<div class="card">
 			<div class="card-header text-center bg-info">Manage your pasword</div>
 			<div class="card-body">
-				<form action="{{route('changepassword')}}" method="POST">
+				<form action="{{route('changepasswords')}}" method="POST">
 				@csrf            
 
                             <div class="mb-3">

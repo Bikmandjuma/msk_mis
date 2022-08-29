@@ -75,6 +75,7 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::get('manage/password','App\Http\Controllers\EsController@ManagePassword');
 	Route::get('manage/profile','App\Http\Controllers\EsController@ManageProfile');
 	Route::post('create/password','App\Http\Controllers\EsController@CreatePassword')->name('changepassword');
+	Route::post('create/profile','App\Http\Controllers\EsController@CreateProfile')->name('changeprofile');
 });
 
 //Tasker routing
@@ -84,4 +85,13 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 	Route::get('citizen/complain','App\Http\Controllers\TaskerController@CitizenComplain');
 	Route::get('pending/complains','App\Http\Controllers\TaskerController@PendingComplain');
 	Route::get('solved/complains','App\Http\Controllers\TaskerController@SolvedComplain');
+	Route::get('form/Files','App\Http\Controllers\TaskerController@formFile');
+	Route::post('create/Files','App\Http\Controllers\TaskerController@CreateFile')->name('createfile');
+	Route::get('view/files','App\Http\Controllers\TaskerController@ViewDocument');
+	Route::post('create/profile/picture','App\Http\Controllers\TaskerController@CreateProfile')->name('changeprofilepicture');
+	Route::get('manage/profile/picture','App\Http\Controllers\TaskerController@ManageProfiles');
+	Route::get('form/password','App\Http\Controllers\TaskerController@ManagePassword');
+
+	Route::post('change/password','App\Http\Controllers\TaskerController@CreatePassword')->name('changepasswords');
+
 });

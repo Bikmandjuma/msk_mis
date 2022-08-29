@@ -27,6 +27,7 @@ $counts_solved_complains=collect($solved_complains)->count();
     <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('tasker/dashboard')}}">
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{$counts_all_complains}}</h3>
@@ -36,11 +37,13 @@ $counts_solved_complains=collect($solved_complains)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
           
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('tasker/pending/complains')}}">
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$counts_pending_complains}}</h3>
@@ -50,11 +53,13 @@ $counts_solved_complains=collect($solved_complains)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('tasker/solved/complains')}}">
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>{{$counts_solved_complains}}</h3>
@@ -64,11 +69,13 @@ $counts_solved_complains=collect($solved_complains)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
+            <a href="{{url('tasker/view/files')}}">
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>0</h3>
@@ -78,6 +85,7 @@ $counts_solved_complains=collect($solved_complains)->count();
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
     </div>

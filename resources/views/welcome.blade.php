@@ -17,7 +17,7 @@
                                     <h2 data-animation="fadeInLeft" data-delay=".6s" >muhawe ikaze mu murenge wa masaka ,waba ufite ikibazo ?</h2>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
-                                        <a href="{{url('cool')}}" class="btn Hero-btn">Kanda hano</a>
+                                        <a href="{{url('cool')}}" style="background-color:white;padding:10px;color:red;border:2px solid red;"><b>Kanda hano</b></a>
                                     </div>
                                 </div>
                             </div>

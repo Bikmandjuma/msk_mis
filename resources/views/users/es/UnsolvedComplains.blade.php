@@ -6,8 +6,7 @@
 @endphp
 <br>
 <div class="row">
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
+	<div class="col-md-12">
 	<?php  
 		$data_counts=CitizenComplain::all()->where('forward','!=',null)->where('complains_reply',null)->where('decision',null);
 		$counts=collect($data_counts)->count();
@@ -21,6 +20,7 @@
 							<th>Names</th>
 							<th>Phone</th>
 							<th>Email</th>
+							<td>Complained&nbsp;date</td>
 							<th>Forwarded&nbsp;date</th>
 						</tr>
 					</thead>
@@ -38,7 +38,8 @@
 								<td>{{$content->names}}</td>
 								<td>{{$content->phone}}</td>
 								<td>{{$emails}}</td>
-								<td>on&nbsp;{{$content->date_co}}&nbsp;at&nbsp;{{$content->time_co}}</td>
+								<td>{{$content->created_at}}</td>
+								<td>{{$content->date_co}}&nbsp;&nbsp;{{$content->time_co}}</td>
 							</tr>
 							
 						@endforeach
@@ -56,7 +57,7 @@
 			<div class="col-md-12 text-center">{{$data->links()}}</div>
 		</div>	
 	</div>
-	<div class="col-md-2"></div>
+	
 </div>
 
 @endsection
