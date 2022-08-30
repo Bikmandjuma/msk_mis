@@ -2,7 +2,7 @@
 @section('content')
 
 @php
-	use App\Models\es;
+	use App\Models\Es;
 	use App\Models\Tasker;
 	use Illuminate\Support\Facades\DB;
 	
@@ -14,7 +14,7 @@
 	<div class="col-md-12 text-center"><b>Abakozi bakora mumurenge wa Masaka</b></div>
 	<div class="col-md-3">
 	<?php  
-		$es_data=es::all();
+		$es_data=Es::all();
 	?>
 	@foreach($es_data as $data)
 		<div class="card" style="border:2px solid skyblue;">
