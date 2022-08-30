@@ -27,9 +27,9 @@
 
 		@if($counts == 0)
 			<div class="card">
-				<div class="card-header text-white bg-info">About us title</div>
+				<div class="card-header text-white bg-info">Ibijyanye natwe</div>
 				<div class="card-body" style="overflow:auto;">
-				<h2>No about us content found found !</h2>
+				<h2>Nta makuru mububiko !</h2>
 				</div>
 			</div>
 		@endif	

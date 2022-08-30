@@ -48,6 +48,20 @@
 	
 </div>
 
+		<?php
+			$data_counts=Tasker::all();
+			$counts=collect($data_counts)->count();
+		?>
+
+		@if($counts == 0)
+			<div class="card">
+				<div class="card-header text-white bg-info">Staff members</div>
+				<div class="card-body" style="overflow:auto;">
+				<h2>No other staff members found !</h2>
+				</div>
+			</div>
+		@endif
+
 <div class="row">
 	<div class="col-md-12 text-center">{{$tasker_data->links()}}</div>
 </div>
