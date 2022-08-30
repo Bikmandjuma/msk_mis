@@ -155,7 +155,7 @@
           <!--Citizen management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
+              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Creations
                 <i class="fas fa-angle-left right"></i>
@@ -177,26 +177,18 @@
                     <p>Add staff member</p>
                   </a>
               </li>
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add slider</p>
-                </a>
-              </li>
-
             </ul>
 
 
           </li>
 
 
-            <!--Arcive management-->
-          <li class="nav-item">
+          <!--Home page management-->
+           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-folder"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                Views
+                Homepage
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -204,32 +196,54 @@
             <ul class="nav nav-treeview">
       
               <li class="nav-item">
-                <a href="{{url('category')}}" class="nav-link">
+                  <a href="{{url('admin/homepage')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>home</p>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{url('admin/about')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>About us</p>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{url('admin/homepage/service')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Services</p>
+                  </a>
+              </li>
+
+            </ul>
+
+
+          </li>
+            <!--Arcive management-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-eye"></i>
+              <p>
+                Views
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                <a href="{{url('admin/view/about')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Category</p>
+                  <p>About us</p>
                 </a>
               </li>
+
 
               <li class="nav-item">
                 <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Products</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Customers</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{url('orders')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Orders</p>
+                  <p>Services</p>
                 </a>
               </li>
 

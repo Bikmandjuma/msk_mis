@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\CitizenComplain;
 use App\Models\Tasker;
+use App\Models\aboutus;
 
 class CitizensController extends Controller
 {
@@ -48,18 +48,8 @@ class CitizensController extends Controller
 		return redirect()->back()->with('complain_sent','Wohereje neza !');
     }
 
-    function createComment(Request $request){
-
-         $this->validate($request,[
-            'name' => 'required|string',
-            'comment' => 'required|string|max:255',
-        ],[
-            'name.required'=>'* Uzuzamo amazina yawe *',
-            'comment.required'=>'* Andika cooment *',
-        ]);
-        // $staffdata=cooment::create([
-
-        // ]);
-        // return view('page.homepage',compact('staffdata'));
+    public function HomepageAboutUs(){
+        $aboutdata=aboutus::all();
+        return view('about',compact('aboutdata'));
     }
 }

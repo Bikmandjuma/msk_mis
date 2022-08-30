@@ -71,8 +71,8 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                <h3><b>MASAKA&nbsp;SECTOR</b></h3>
-<!--                                   <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <h3 style="color:#295684;"><b>MASAKA&nbsp;SECTOR</b></h3>
+<!--                             <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
  -->                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -121,7 +121,8 @@
                         <div class="single-footer-caption mb-30">
                              <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                                <!-- <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a> -->
+                                <p style="color:violet;"><b>MASAKA SECTOR</b></p>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">

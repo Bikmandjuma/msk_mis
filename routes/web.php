@@ -21,9 +21,7 @@ Route::get('cool', function () {
     return view('users.citizen.Complains');
 })->name('citizen_complains');
 
-Route::get('About', function () {
-    return view('about');
-});
+Route::get('About','App\Http\Controllers\CitizensController@HomepageAboutUs');
 
 Route::get('Services', function () {
     return view('service');
@@ -57,6 +55,12 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::post('Addstaffrole','App\Http\Controllers\AdminController@Addstaffrolefn')->name('Addstaffrole');
 	Route::get('add/staffmember','App\Http\Controllers\AdminController@FormRegisterStaffMember');
 	Route::post('create/staffmember','App\Http\Controllers\RigisterTaskerController@CreateStaffMember')->name('CreateStaffMember');
+	Route::get('about','App\Http\Controllers\AdminController@About');
+	Route::post('create/about','App\Http\Controllers\AdminController@CreateAbout')->name('createAbout');
+	Route::get('view/about','App\Http\Controllers\AdminController@aboutdata')->name('editabout');
+	Route::get('edit/about/{id}','App\Http\Controllers\AdminController@EditAbout');
+	Route::post('update/about/{id}','App\Http\Controllers\AdminController@UpdateAbout')->name('updateabout');
+	Route::post('homepage/service','App\Http\Controllers\AdminController@FormServices');
 
 });
 

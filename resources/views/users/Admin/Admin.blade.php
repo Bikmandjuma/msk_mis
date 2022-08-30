@@ -8,7 +8,7 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>0</h3>
-                <p>Category</p>
+                <p>System users</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-person"></i>
@@ -22,7 +22,7 @@
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>0</h3>
-                <p>All product in store</p>
+                <p>All Complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-person"></i>
@@ -36,7 +36,7 @@
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>0</h3>
-                <p>Product booked today</p>
+                <p>Solved complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
@@ -50,7 +50,7 @@
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>0</h3>
-                <p>Product left in store</p>
+                <p>Unsolved complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
