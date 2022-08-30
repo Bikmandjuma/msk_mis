@@ -11,6 +11,9 @@
 	$tasker_data= DB::table('taskers')
 			  ->join('tasker_roles', 'tasker_roles.id', '=', 'taskers.role_id')
 			  ->select('taskers.*','taskers.firstname','taskers.email','taskers.lastname','taskers.phone','taskers.image','tasker_roles.name')->get();
+
+	$data_counts=Tasker::all();
+	$counts=collect($data_counts)->count();
 ?>
 <br>
 <div class="row">
@@ -46,6 +49,12 @@
 								<td>{{$data->name}}</td>
 							</tr>
 						@endforeach
+
+						@if($counts == 0)
+							<tr>
+								<td colspan="4">Ntayandi makuru mububiko !</td>
+							</tr>
+						@endif
 					</tbody>
 				</table>
 
@@ -54,19 +63,5 @@
 	</div>
 	<div class="col-md-1"></div>	
 </div>
-
-		<?php
-			$data_counts=Tasker::all();
-			$counts=collect($data_counts)->count();
-		?>
-
-		@if($counts == 0)
-			<div class="card">
-				<div class="card-header text-white bg-info">Duhamagare</div>
-				<div class="card-body" style="overflow:auto;">
-				<h2>Nta makuru mububiko !</h2>
-				</div>
-			</div>
-		@endif
 <br>
 @endsection
