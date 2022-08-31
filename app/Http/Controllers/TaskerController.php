@@ -143,5 +143,12 @@ class TaskerController extends Controller
         $complains=CitizenComplain::all()->where('id',$id);
         return view('users.tasker.ViewSingleComplains',compact('complains'));
     }
+    public function CareOnComplains($id){
+        $fname=auth()->guard('tasker')->user()->firstname;
+        $lname=auth()->guard('tasker')->user()->lastname;
+        $done='pending';
+        $profile=CitizenComplain::find($id)->update(['complains_reply'=>$done]);
+        return back()->with("care_on_complain", "".$fname." ".$lname." , you are going to solve this complain ,now is pending until is solved !");
+    }
 
 }

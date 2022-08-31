@@ -85,18 +85,18 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <div data-toggle="dropdown" style="margin-top:5px;cursor:pointer;">
-              {{auth()->guard('admin')->user()->firstname}}
+              <i class="fa fa-cog"></i>&nbsp;{{auth()->guard('admin')->user()->lastname}}
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-40px;border:2px solid white">
            <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
-            <i class="fas fa-user mr-2"></i>
-            Account
+            <i class="fas fa-key mr-2"></i>
+            Password
           </a>
           <div class="dropdown-divider"></div>
           <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
-           Profile picture
+           Profile
           </a>
 
           <div class="dropdown-divider"></div>
@@ -134,7 +134,7 @@
             <img src="{{URL::to('/')}}/images/{{auth()->guard('admin')->user()->image}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->guard('admin')->user()->lastname}}</a>
+          <a href="#" class="d-block">{{auth()->guard('admin')->user()->firstname}}</a>
         </div>
       </div>
 
@@ -231,6 +231,13 @@
             </a>
 
             <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="{{url('admin/staff/members')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Staff members</p>
+                </a>
+              </li>
 
               <li class="nav-item">
                 <a href="{{url('admin/view/about')}}" class="nav-link">

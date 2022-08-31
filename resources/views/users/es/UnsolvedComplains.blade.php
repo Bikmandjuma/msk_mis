@@ -20,7 +20,7 @@
 							<th>Names</th>
 							<th>Phone</th>
 							<th>Email</th>
-							<td>Complained&nbsp;date</td>
+							<th>Complained&nbsp;date</th>
 							<th>Forwarded&nbsp;date</th>
 						</tr>
 					</thead>

@@ -11,14 +11,14 @@ $staff=Tasker::all();
 $staff_count=collect($staff)->count();
 
 //unsolved
-$unsolved_comp=CitizenComplain::all()->where('forward','!=',null)->where('complains_reply',null)->where('decision',null);
+$unsolved_comp=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply','pending')->where('decision',null);
 $unsolved_counts=collect($unsolved_comp)->count();
 
 $cit_comp=CitizenComplain::all();
 $cit_counts=collect($cit_comp)->count();
 
 //Solved complains
-$solved_comp=CitizenComplain::all()->where('complains_reply','!=',null)->where('decision','!=',null);
+$solved_comp=CitizenComplain::all()->where('complains_reply','done')->where('decision','done');
 $solved_counts=collect($solved_comp)->count();
 ?>
 <div class="container">

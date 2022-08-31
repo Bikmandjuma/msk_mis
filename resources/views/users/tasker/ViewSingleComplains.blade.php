@@ -1,16 +1,21 @@
 @extends('users.tasker.Cover')
 @section('content')
 @php
-	use App\Models\taskerfile;
+	use App\Models\CitizenComplain;
 @endphp
 <br>
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
-
+	 	@if(session('care_on_complain'))
+                <div class="alert alert_success"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+                    <strong>{{session('care_on_complain')}}</strong>
+                </div><br>
+        @endif 
+		
 		<div class="card">
 			<div class="card-header text-center bg-info">Citizen complains</div>
-			<div class="card-body" style="overflow:auto;">
+			<div class="card-body text-center" style="overflow:auto;">
 				@foreach($complains as $data)
 				<h4><b><span class="text-info">Names </span>: {{$data->names}}</b></h4>
 				<hr>
@@ -20,12 +25,26 @@
 					if ($data->image == null){
 					}else{
 						?>
-						<a href="{{URL::to('/')}}/images/citizen/{{$data->image}}" target="parent" ></a> <img src="{{URL::to('/')}}/images/citizen/{{$data->image}}" style="width:100px;height:150px;"></a>
+						<h4><b><span class="text-info">Image</span></b></h4> :</a> <img src="{{URL::to('/')}}/images/citizen/{{$data->image}}" style="width:100px;height:150px;"><br>
+						<a href="{{URL::to('/')}}/images/citizen/{{$data->image}}" target="parent"><i class="fa fa-eye"></i> View</a>
 						<?php
 					}
 						
 				?>
-				
+				<?php
+					$care=CitizenComplain::all()->where('id',$data->id)->where('complains_reply',null);
+					$countss=collect($care)->count();
+					
+					if($countss == 1){
+						?>
+						<a href="{{route('CareComplains',$data->id)}}"><button class="btn btn-primary float-right">Care of it</button></a>
+						<?php
+					}else{
+						?>
+						<a href="{{url('tasker/pending/complains')}}"><button class="btn btn-info float-right">Now Complain is pending</button></a>
+						<?php
+					}
+				?>
 				@endforeach
 			</div>
 		</div>

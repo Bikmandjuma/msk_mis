@@ -61,6 +61,14 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('edit/about/{id}','App\Http\Controllers\AdminController@EditAbout');
 	Route::post('update/about/{id}','App\Http\Controllers\AdminController@UpdateAbout')->name('updateabout');
 	Route::post('homepage/service','App\Http\Controllers\AdminController@FormServices');
+	Route::get('staff/members','App\Http\Controllers\AdminController@ViewStaffMembers')->name('staffmembers');
+
+	Route::get('view/about','App\Http\Controllers\AdminController@aboutdata')->name('editabout');
+
+	Route::get('edit/staff/members/{id}','App\Http\Controllers\AdminController@EditStaffMembers')->name('AdminEditStaffMembes');
+	Route::post('update/staff/members/{id}','App\Http\Controllers\AdminController@UpdateStaffMembers')->name('AdminUpdateStaffMembes');
+	Route::get('edit/es/{id}','App\Http\Controllers\AdminController@EditEs')->name('AdminEditEs');
+	Route::post('update/es/{id}','App\Http\Controllers\AdminController@UpdateEs')->name('AdminUpdateEs');
 
 });
 
@@ -98,5 +106,6 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 
 	Route::post('change/password','App\Http\Controllers\TaskerController@CreatePassword')->name('changepasswords');
 	Route::get('view/single/complain/{id}','App\Http\Controllers\TaskerController@SingleComplains')->name('viewsingleComplains');
+	Route::get('Care/complain/{id}','App\Http\Controllers\TaskerController@CareOnComplains')->name('CareComplains');
 
 });

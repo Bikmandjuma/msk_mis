@@ -27,7 +27,7 @@ $roles=TaskerRole::all();
                           <div style="background-color:#295684;font-size:20px;color:white;padding-top:10px;padding-bottom:10px;" class="text-center">Citizen complain form</div>
                            <div id="first">
                              <div class="myform_login form ">
-                                   <form action="{{route('send_complains')}}" method="POST">
+                                   <form action="{{route('send_complains')}}" method="POST"   enctype="multipart/form-data">
                                      {!! csrf_field() !!}
                                         <div class="row">
                                         <div class="col-md-6">
@@ -59,7 +59,7 @@ $roles=TaskerRole::all();
                                              <span style="color:red;">@error('complains') {{$message}} @enderror</span>
                                              <br>
                                              <label><b>Shiraho ifoto cyangwa dokima</b></label>
-                                             <input type="file" name="docs" class="form-control" multiple value="{{old('docs')}}">
+                                             <input type="file" name="image" class="form-control">
                                              <span style="color:red;">@error('docs') {{$message}} @enderror</span>
                                              <br>
                                              <br>

@@ -16,7 +16,7 @@ class CitizensController extends Controller
             'email' => 'max:255',
             'role_id' => 'required',
             'complains' => 'required|max:500',
-            'docs[]' => 'mimes:jpg,jpeg,png,pdf',
+            'image' => 'mimes:jpg,jpeg,png,pdf',
         ],
         [
         	'names.required' => 'Uzuzamo amazina yawe yombi *',
@@ -25,7 +25,7 @@ class CitizensController extends Controller
         	'phone.digits' => 'Nimero ya telephone igomba kuba ari imibare 10 *',
         	'role_id.required' => 'Hitamo ubishinzwe *',
         	'complains.required' => 'Andika ikibazo ufite *',
-        	'docs[].mimes' => 'Shyiramo ifoto ya format ya jpg,jpeg,png cyangwa pdf *',
+        	'image.mimes' => 'Shyiramo ifoto ya format ya jpg,jpeg,png cyangwa pdf *',
         ]);		
 
     	$data=new CitizenComplain;
@@ -35,14 +35,22 @@ class CitizensController extends Controller
 		$data->role_id = $request->role_id;
 		$data->complains = $request->complains;
 
-		if ($request->hasFile('docs')){
-			$images = $request->file('docs');
-		    $var = date_create();
-		    $time = date_format($var, 'YmdHis');
-		    $imageName = $time . '-' . $images->getClientOriginalName();
-		    $images-> move(public_path('images/citizen/'), $imageName);
-		    $data->image = $imageName;
-		}
+		// if ($request->hasFile('image')){
+		// 	$images = $request->file('image');
+		//     $var = date_create();
+		//     $time = date_format($var, 'YmdHis');
+  //           $imageExtension = $images->getClientOriginalExtension();
+		//     $imageName = $time . '-' . $images->getClientOriginalName();
+		//     $images-> move(public_path('images/citizen/'), $imageName);
+		//     $data->image = $imageName;
+		// }
+        if($request->hasFile('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $extenstion = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/citizen/'), $filename);
+                $data['image']= $filename;
+        }
 
 		$data->save();
 		return redirect()->back()->with('complain_sent','Wohereje neza !');

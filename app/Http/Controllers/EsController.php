@@ -36,12 +36,12 @@ class EsController extends Controller
     } 
 
     public function SolvedComplains(){
-        $data=CitizenComplain::where('complains_reply','!=',null)->where('decision','!=',null)->paginate(5);
+        $data=CitizenComplain::where('complains_reply','done')->where('decision','done')->paginate(5);
         return view('users.es.SolvedComplains', compact('data'));
     }
 
     public function UnsolvedComplains(){
-        $data=CitizenComplain::where('forward','!=',null)->where('complains_reply',null)->where('decision',null)->paginate(5);
+        $data=CitizenComplain::where('forward','forwarded')->where('complains_reply','pending')->where('decision',null)->paginate(5);
         return view('users.es.UnsolvedComplains', compact('data'));
     }
 

@@ -101,7 +101,7 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <div data-toggle="dropdown" style="padding-right:20px; margin-top:5px;cursor:pointer;">
-          <i class="fa fa-user"></i>&nbsp;{{$item->firstname}}
+          <i class="fa fa-cog"></i>&nbsp;{{$item->firstname}}
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;padding-right:20px;border:2px solid white;">

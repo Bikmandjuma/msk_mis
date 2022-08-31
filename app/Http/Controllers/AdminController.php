@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\TaskerRole;
+use App\Models\Tasker;
 use App\Models\aboutus;
+use App\Models\Es;
+
 use Validator;
 
 class AdminController extends Controller
@@ -87,5 +91,45 @@ class AdminController extends Controller
         return view('users.Admin.Services');
     }
 
+    function ViewStaffMembers(){
+        $staffdata=Tasker::paginate(5);
+        return view('users.Admin.ViewStaff',compact('staffdata'));
+    }
+
+    function EditStaffMembers($id){
+        $staffdata =Tasker::find($id);
+        return view('users.Admin.EditStaffMembers',compact('staffdata'));
+    }
+
+    public function UpdateStaffMembers(Request $request,$id){
+        $data =Tasker::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nat_id = $request->nat_id;
+        $data->password =hash::make($request->phone);
+        $data->save();
+        return redirect(route('staffmembers'))->with('status','data Updated Successfully');
+    }
+
+    function EditEs($id){
+        $staffdata =Es::find($id);
+        return view('users.Admin.EditEs',compact('staffdata'));
+    }
+
+    public function UpdateEs(Request $request,$id){
+        $data =Es::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nat_id = $request->nat_id;
+        $data->password =hash::make($request->phone);
+        $data->save();
+        return redirect(route('staffmembers'))->with('status','data Updated Successfully');
+    }
 }
 

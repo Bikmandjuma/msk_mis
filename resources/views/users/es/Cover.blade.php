@@ -88,7 +88,7 @@
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
         <div data-toggle="dropdown" style="padding-right:20px; margin-top:5px;cursor:pointer;">
-          <i class="fas fa-user mr-2"></i>&nbsp;{{auth()->guard('es')->user()->firstname}}
+          <i class="fas fa-cog mr-2"></i>&nbsp;{{auth()->guard('es')->user()->lastname}}
         
 
         </div>
@@ -151,7 +151,7 @@
             <img src="{{URL::to('/')}}/images/{{auth()->guard('es')->user()->image}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{auth()->guard('es')->user()->lastname}}</a>
+          <a href="#" class="d-block">{{auth()->guard('es')->user()->firstname}}</a>
         </div>
       </div>
 
@@ -188,24 +188,17 @@
                   </a>
               </li>
 
-              <!-- <li class="nav-item">
-                  <a href="" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Forwarded complains</p>
-                  </a>
-              </li> -->
-
-              <li class="nav-item">
-                <a href="{{url('es/solved/complains')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Solved Complains</p>
-                </a>
-              </li>
-
               <li class="nav-item">
                 <a href="{{url('es/unsolved/complains')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Unsolved Complains</p>
+                </a>
+              </li>
+
+               <li class="nav-item">
+                <a href="{{url('es/solved/complains')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Solved Complains</p>
                 </a>
               </li>
 
