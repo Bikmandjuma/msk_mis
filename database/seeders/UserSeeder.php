@@ -21,21 +21,21 @@ class UserSeeder extends Seeder
             'lastname' =>'Djuma',
             'gender' => 'male',
             'phone' => '0785389000',
-            'nat_id' => '1199380022064009',
+            'nat_id' => '1111111111111111',
             'image' => 'user.png',
             'email' => 'admin@gmail.com',
             'password'=>bcrypt('admin123@'),
         ]);
 
         Es::create([
-        	'firstname' => 'Ally',
-            'lastname' =>'Sibomana',
+        	'firstname' => 'Alfred',
+            'lastname' =>'Nduwayezu',
             'gender' => 'male',
-            'phone' => '0787943106',
-            'nat_id' => '1200080017654451',
+            'phone' => '0788862020',
+            'nat_id' => '1111111111111111',
             'image' => 'user.png',
-            'email' => 'es@gmail.com',
-            'password'=>bcrypt('es12345@'),
+            'email' => 'alfred@gmail.com',
+            'password'=>bcrypt('0788862020'),
         ]);
 
         // Tasker::create([

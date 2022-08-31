@@ -97,5 +97,6 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 	Route::get('form/password','App\Http\Controllers\TaskerController@ManagePassword');
 
 	Route::post('change/password','App\Http\Controllers\TaskerController@CreatePassword')->name('changepasswords');
+	Route::get('view/single/complain/{id}','App\Http\Controllers\TaskerController@SingleComplains')->name('viewsingleComplains');
 
 });

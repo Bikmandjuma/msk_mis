@@ -27,7 +27,7 @@
 						<tr>
 							<th>Amazina</th>
 							<th>Terefone</th>
-							<th>Emeri</th>
+							<th>Imeri</th>
 							<th>Icyobashinzwe</th>
 						</tr>
 					</thead>

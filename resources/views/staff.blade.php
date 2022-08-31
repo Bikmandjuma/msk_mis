@@ -9,7 +9,7 @@
 	$es_data=Es::all();
 	$tasker_data= DB::table('taskers')
             ->join('tasker_roles', 'tasker_roles.id', '=', 'taskers.role_id')
-            ->select('taskers.*','taskers.firstname','taskers.lastname','taskers.phone','taskers.image','tasker_roles.name')->paginate(4);
+            ->select('taskers.*','taskers.firstname','taskers.lastname','taskers.phone','taskers.image','tasker_roles.name')->paginate(12);
     
     $data_counts=Tasker::all();
 	$counts=collect($data_counts)->count();

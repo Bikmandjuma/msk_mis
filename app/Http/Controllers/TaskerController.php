@@ -139,4 +139,9 @@ class TaskerController extends Controller
         return back()->with("status", "Password changed successfully!");
     }
 
+    public function SingleComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.tasker.ViewSingleComplains',compact('complains'));
+    }
+
 }

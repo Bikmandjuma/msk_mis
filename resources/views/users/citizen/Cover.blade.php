@@ -83,10 +83,10 @@
                                             <li><a href="{{url('/')}}">Ahabanza</a></li>
                                             <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
                                             <li><a href="{{url('Services')}}">Serivise</a></li>
-                                            <li><a href="{{url('Staff')}}">Abakozi</a></li>
                                             <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
-                                            <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
-                                            <!-- <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li> -->
+                                            <li><a href="{{url('Staff')}}">Abakozi</a></li>
+<!--                                             <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
+ -->                                            <!-- <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li> -->
                                         </ul>
                                     </nav>
                                 </div>
@@ -126,48 +126,32 @@
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Masaka sector office is the office which is responsible to solve the problem of every rwandan ,we are here for you !</p>
+                                    <p>muhawe ikaze mu murenge wa masaka ,waba ufite ikibazo ?</p>
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
+                                        <a href="{{url('cool')}}" style="background-color:white;padding:10px;color:red;border:2px solid red;"><b>Kanda hano</b></a>
+                                    </div>
                                </div>
-                            </div>
-                            <!-- social -->
-                            <div class="footer-social">
-                                <a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                                 <a href="#"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                       </div>
                    </div>
-                   <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
+                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Kanda hano</h4>
+                               <h4>Aha wakanda</h4>
                                <ul>
                                    <li><a href="{{url('/')}}">Ahabanza</a></li>
                                    <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
                                    <li><a href="{{url('Services')}}">Serivise</a></li>
-                                   <li><a href="{{url('Staff')}}">Abakozi</a></li>
                                    <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
-                                   <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
-                                   <li><a href="{{route('Login')}}">Login</a></li>
+                                   <li><a href="{{url('Staff')}}">Abakozi</a></li>
+<!--                                    <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
+ -->                                   <li><a href="{{route('Login')}}">Login</a></li>
                                </ul>
                            </div>
                        </div>
                    </div>
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                       <div class="single-footer-caption mb-50">
-                           <div class="footer-tittle">
-                               <h4>Serivise</h4>
-                               <ul>
-                                   <li>
-                                        <p>
-                                             Our first object is to provide better service for every rwandan who complain his/her problem on our office site we reply as soon as posible.
-                                        </p>
-                                   </li>
-                              </ul>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
                                <h4>Aho wadusanga (address)</h4>
@@ -177,6 +161,12 @@
                                 <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
                             </ul>
                            </div>
+                           <!-- social -->
+                            <div class="footer-social">
+                                <a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
+                                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+
                        </div>
                    </div>
                </div>
