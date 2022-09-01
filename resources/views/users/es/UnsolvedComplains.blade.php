@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-md-12">
 	<?php  
-		$data_counts=CitizenComplain::all()->where('forward','!=',null)->where('complains_reply',null)->where('decision',null);
+		$data_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply','pending')->where('decision',null);
 		$counts=collect($data_counts)->count();
 	?>
 		<div class="card">

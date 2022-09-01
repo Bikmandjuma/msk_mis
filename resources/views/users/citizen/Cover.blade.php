@@ -22,7 +22,7 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    </head>
 
    <body>
@@ -80,11 +80,11 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav> 
                                         <ul id="navigation">              
-                                            <li><a href="{{url('/')}}">Ahabanza</a></li>
-                                            <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
-                                            <li><a href="{{url('Services')}}">Serivise</a></li>
-                                            <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
-                                            <li><a href="{{url('Staff')}}">Abakozi</a></li>
+                                            <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
+                                            <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Ibijyanye natwe</a></li>
+                                            <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Serivise</a></li>
+                                            <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
+                                            <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
 <!--                                             <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
  -->                                            <!-- <li><a href="{{route('Login')}}"><i class="fas fa-user"></i>&nbsp; Login</a></li> -->
                                         </ul>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>muhawe ikaze mu murenge wa masaka ,waba ufite ikibazo ?</p>
+                                    <p><i class="fa fa-home"></i>&nbsp;Muhawe ikaze mu murenge wa masaka ,waba ufite ikibazo ?</p>
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
                                         <a href="{{url('cool')}}" style="background-color:white;padding:10px;color:red;border:2px solid red;"><b>Kanda hano</b></a>
                                     </div>
@@ -138,15 +138,14 @@
                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Aha wakanda</h4>
+                               <h4>Aho wakanda</h4>
                                <ul>
-                                   <li><a href="{{url('/')}}">Ahabanza</a></li>
-                                   <li><a href="{{url('About')}}">Ibijyanye natwe</a></li>
-                                   <li><a href="{{url('Services')}}">Serivise</a></li>
-                                   <li><a href="{{url('cool')}}">Waba ufite ikibazo</a></li>
-                                   <li><a href="{{url('Staff')}}">Abakozi</a></li>
-<!--                                    <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
- -->                                   <li><a href="{{route('Login')}}">Login</a></li>
+                                    <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
+                                    <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Ibijyanye natwe</a></li>
+                                    <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Serivise</a></li>
+                                    <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
+                                    <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
+                                    <li><a href="{{route('Login')}}"><i class="fa fa-lock-open"></i>&nbsp;Login</a></li>
                                </ul>
                            </div>
                        </div>

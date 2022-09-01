@@ -42,7 +42,7 @@
                     <tr>
                       <td>{{$items->id}}</td>
                       <td>{{$items->name}}</td>
-                      <td><a href="#{{$items->id}}"><i class="fa fa-edit"></i>&nbsp;Edit</a> </td>
+                      <td><a href="{{route('EditRole',$items->id)}}"><i class="fa fa-edit"></i>&nbsp;Edit</a> </td>
                     </tr>
                   @endforeach
 

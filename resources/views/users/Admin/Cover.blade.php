@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
@@ -210,7 +211,7 @@
               </li>
 
               <li class="nav-item">
-                  <a href="{{url('admin/homepage/service')}}" class="nav-link">
+                  <a href="{{route('formservice')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Services</p>
                   </a>
@@ -225,7 +226,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
               <p>
-                Views
+                View&nbsp;&&nbsp;Modify
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -246,9 +247,8 @@
                 </a>
               </li>
 
-
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{url('admin/View/Service')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Services</p>
                 </a>

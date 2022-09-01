@@ -8,6 +8,7 @@ use App\Models\TaskerRole;
 use App\Models\Tasker;
 use App\Models\aboutus;
 use App\Models\Es;
+use App\Models\Servicetb;
 
 use Validator;
 
@@ -130,6 +131,84 @@ class AdminController extends Controller
         $data->password =hash::make($request->phone);
         $data->save();
         return redirect(route('staffmembers'))->with('status','data Updated Successfully');
+    }
+
+    function EditRole($id){
+        $role_data =TaskerRole::find($id);
+        return view('users.Admin.EditRole',compact('role_data'));
+    }
+
+    function UpdateRoles(Request $request,$id){
+        $data =TaskerRole::find($id);
+        $data->name = $request->name;
+        $data->save();
+        return redirect(route('staffroles'))->with('status','data Updated Successfully');
+    }
+
+    public function FormService(){
+        return view('users.Admin.Services');
+    }
+
+    public function CreateService(Request $request){
+         $request->validate([
+                'title' => 'required',
+                'image' => 'required|mimes:jpg,jpeg,png,pdf',
+                'content' => 'required|max:255',
+            ]);
+
+            $datas=new Servicetb;
+            $datas->title = $request->title;
+
+            if($request->hasFile('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $extenstion = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/citizen/service'), $filename);
+                $datas['image']= $filename;
+            }
+                
+            $datas->content = $request->content;
+            $datas->save();
+
+            return redirect()->back()->with('service_added','Service content added successfully !');
+
+    }
+
+    public function ViewService(){
+        $servicedata=Servicetb::paginate(5);
+        return view('users.Admin.ViewService',compact('servicedata'));
+    }
+
+    public function DeleteService($id){
+        $DeleteService=Servicetb::find($id)->delete();
+        return redirect()->back()->with('service_deleted','Service deleted !');
+    }
+
+    public function EditService($id){
+        $ServiceData=Servicetb::find($id);
+        return view('users.Admin.EditService',compact('ServiceData'));
+    }
+
+    public function UpdateServices(Request $request,$id){
+            $request->validate([
+                'title' => 'required',
+                'image' => 'required|mimes:jpg,jpeg,png,pdf',
+                'content' => 'required|max:255',
+            ]);
+
+            $datas=Servicetb::find($id);
+            $datas->title = $request->title;
+            if($request->hasFile('image')){
+                $file= $request->file('image');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $extenstion = $file->getClientOriginalExtension();
+                $file-> move(public_path('images/citizen/service/'), $filename);
+                $datas['image']= $filename;
+            }
+            $datas->content = $request->content;
+            $datas->save();
+
+        return redirect(route('ViewServices'))->with('status','Service updated !');
     }
 }
 

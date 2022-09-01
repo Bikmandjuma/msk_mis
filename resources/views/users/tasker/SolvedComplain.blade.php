@@ -44,7 +44,7 @@
 
             <?php
               $rol_id=auth()->guard('tasker')->user()->role_id;
-              $count_compl=CitizenComplain::all()->where('role_id',$rol_id)->where('complains_reply','solved')->where('decision','done');
+              $count_compl=CitizenComplain::all()->where('role_id',$rol_id)->where('complains_reply','done')->where('decision','done');
               $counts=collect($count_compl)->count();
 
               if ($counts == 0) {

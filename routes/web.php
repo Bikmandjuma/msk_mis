@@ -23,9 +23,7 @@ Route::get('cool', function () {
 
 Route::get('About','App\Http\Controllers\CitizensController@HomepageAboutUs');
 
-Route::get('Services', function () {
-    return view('service');
-});
+Route::get('Services', 'App\Http\Controllers\CitizensController@HomepageService');
 
 Route::get('Staff', function () {
     return view('staff');
@@ -50,8 +48,7 @@ Route::post('send-complains', 'App\Http\Controllers\CitizensController@CitizenCo
 Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('dashboard','App\Http\Controllers\AdminController@dashboard')->name('admindashboard');
 
-	Route::get('staffrole','App\Http\Controllers\AdminController@ViewStaffRoles');
-
+	Route::get('staffrole','App\Http\Controllers\AdminController@ViewStaffRoles')->name('staffroles');
 	Route::post('Addstaffrole','App\Http\Controllers\AdminController@Addstaffrolefn')->name('Addstaffrole');
 	Route::get('add/staffmember','App\Http\Controllers\AdminController@FormRegisterStaffMember');
 	Route::post('create/staffmember','App\Http\Controllers\RigisterTaskerController@CreateStaffMember')->name('CreateStaffMember');
@@ -69,6 +66,14 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::post('update/staff/members/{id}','App\Http\Controllers\AdminController@UpdateStaffMembers')->name('AdminUpdateStaffMembes');
 	Route::get('edit/es/{id}','App\Http\Controllers\AdminController@EditEs')->name('AdminEditEs');
 	Route::post('update/es/{id}','App\Http\Controllers\AdminController@UpdateEs')->name('AdminUpdateEs');
+	Route::get('edit/role/{id}','App\Http\Controllers\AdminController@EditRole')->name('EditRole');
+	Route::post('update/role/{id}','App\Http\Controllers\AdminController@UpdateRoles')->name('UpdateRole');
+	Route::get('View/Form/Servive','App\Http\Controllers\AdminController@FormService')->name('formservice');
+	Route::get('View/Service','App\Http\Controllers\AdminController@ViewService')->name('ViewServices');
+	Route::post('Create/Servive','App\Http\Controllers\AdminController@CreateService')->name('CreateServices');
+	Route::get('delete/servive/{id}','App\Http\Controllers\AdminController@DeleteService')->name('DeleteService');
+	Route::get('edit/service/{id}','App\Http\Controllers\AdminController@EditService')->name('EditService');
+	Route::post('update/service/{id}','App\Http\Controllers\AdminController@UpdateServices')->name('UpdateService');
 
 });
 
@@ -80,7 +85,7 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::get('solved/complains','App\Http\Controllers\EsController@SolvedComplains');
 	Route::get('unsolved/complains','App\Http\Controllers\EsController@UnsolvedComplains');
 	Route::get('viewstaff','App\Http\Controllers\EsController@ViewStaff');
-	Route::get('information','App\Http\Controllers\EsController@Myinformation');
+	Route::get('information','App\Http\Controllers\EsController@Myinformation')->name('EsInformation');
 	Route::get('form/document','App\Http\Controllers\EsController@formdocument');
 	Route::post('create/document','App\Http\Controllers\EsController@CreateDocument')->name('createdocument');
 	Route::get('view/document','App\Http\Controllers\EsController@ViewDocument');
@@ -88,6 +93,8 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::get('manage/profile','App\Http\Controllers\EsController@ManageProfile');
 	Route::post('create/password','App\Http\Controllers\EsController@CreatePassword')->name('changepassword');
 	Route::post('create/profile','App\Http\Controllers\EsController@CreateProfile')->name('changeprofile');
+	Route::get('edit/info/{id}','App\Http\Controllers\EsController@EditEsInfo')->name('editinfo');
+	Route::post('update/info/{id}','App\Http\Controllers\EsController@UpdateInfo')->name('UpdateInfo');
 });
 
 //Tasker routing

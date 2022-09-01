@@ -61,8 +61,6 @@ class EsController extends Controller
     }
 
     public function CreateDocument(Request $request){
-
-            
             $request->validate([
                 'name' => 'required',
                 'image' => 'required|mimes:jpg,jpeg,png,pdf,zip,gif,docs,docx,csv,pptx',
@@ -145,6 +143,23 @@ class EsController extends Controller
 
         }
         
+    }
+
+    public function EditEsInfo($id){
+        $staffdata=Es::find($id);
+        return view('users.es.EditInfo',compact('staffdata'));
+    }
+
+    function UpdateInfo(Request $request,$id){
+        $data =Es::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nat_id = $request->nat_id;
+        $data->save();
+        return redirect(route('EsInformation'))->with('status','data Updated Successfully');
     }
 
 }

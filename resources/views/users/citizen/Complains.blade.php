@@ -68,7 +68,7 @@ $roles=TaskerRole::all();
                                                   cursor:pointer;
                                                }
                                              </style>
-                                             <button id="ohereza" style="background-color:#295684;padding:10px;color:white;border-radius:10px;" name="submit">Ohereza</button>           
+                                             <button id="ohereza" style="background-color:#295684;padding:10px;color:white;border-radius:10px;" name="submit"><i class="fa fa-paper-plane"></i> Ohereza</button>           
                                         </div>
                                       </div>
                                     </form>

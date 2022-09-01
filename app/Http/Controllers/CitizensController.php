@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\CitizenComplain;
 use App\Models\Tasker;
 use App\Models\aboutus;
+use App\Models\Servicetb;
 
 class CitizensController extends Controller
 {
@@ -35,15 +36,6 @@ class CitizensController extends Controller
 		$data->role_id = $request->role_id;
 		$data->complains = $request->complains;
 
-		// if ($request->hasFile('image')){
-		// 	$images = $request->file('image');
-		//     $var = date_create();
-		//     $time = date_format($var, 'YmdHis');
-  //           $imageExtension = $images->getClientOriginalExtension();
-		//     $imageName = $time . '-' . $images->getClientOriginalName();
-		//     $images-> move(public_path('images/citizen/'), $imageName);
-		//     $data->image = $imageName;
-		// }
         if($request->hasFile('image')){
                 $file= $request->file('image');
                 $filename= date('YmdHi').$file->getClientOriginalName();
@@ -59,5 +51,10 @@ class CitizensController extends Controller
     public function HomepageAboutUs(){
         $aboutdata=aboutus::all();
         return view('about',compact('aboutdata'));
+    }
+
+    public function HomepageService(){
+        $servicedata=Servicetb::paginate(5);
+        return view('service',compact('servicedata'));
     }
 }

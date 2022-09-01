@@ -31,10 +31,10 @@
                               <div class="input-group">
                                 <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">  
                               </div>
-                              <span class="text-danger"> @error('password') {{ $message }}@enderror</span>
+                              <span class="text-danger"> @error('password') {{$message}}@enderror</span>
                            </div>
                           <div class="col-xl-12 col-lg-12 col-md-12 text-center">
-                               <button type="submit" id="btn-login"><i class="fa fa-sign-in"></i>&nbsp;Login</button>
+                               <button type="submit" id="btn-login"><i class="fa fa-lock-open"></i>&nbsp;Login</button>
                            </div>
                            <div class="col-xl-12 col-lg-12 col-md-12 ">
                               <div class="login-or">

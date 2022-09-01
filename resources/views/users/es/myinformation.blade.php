@@ -1,5 +1,8 @@
 @extends('users.es.Cover')
 @section('content')
+<?php
+$es_id=auth()->guard('es')->user()->id;
+?>
 <br>
 <style type="text/css">
   #my_data p{
@@ -12,7 +15,7 @@
           <div class="col-sm-8 col-12">
             <div class="card">
             @foreach($info as $data)
-              <div class="card-header text-center bg-info"><i class="fa fa-user f-w"></i>&nbsp;&nbsp;<b>E/S</b>&nbsp; information</div>
+              <div class="card-header text-center bg-info"><i class="fa fa-user f-w"></i>&nbsp;&nbsp;<b>E/S</b>&nbsp; information <a href="{{route('editinfo',$es_id)}}"><button class="btn btn-light float-right"><i class="fa fa-edit"></i> Edit</button></a></div>
               <div class="card-body" style="overflow: auto;">
                       <div class="row">
                         <div class="col-sm-6 text-center">

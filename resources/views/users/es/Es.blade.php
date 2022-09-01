@@ -41,7 +41,7 @@ $solved_counts=collect($solved_comp)->count();
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <a href="{{url('es/dashboard')}}">
+            <a href="{{url('es/citizen/complains')}}">
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$cit_counts}}</h3>
