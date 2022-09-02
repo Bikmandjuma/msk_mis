@@ -32,7 +32,7 @@
 						@foreach($staffdata as $data)
 							<tr>
 								<td>
-									<img src="{{URL::to('/')}}/images/{{$data->image}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
+									<img src="{{asset('images/'.$data->image)}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
 								</td>
 								<td>{{$data->firstname}}</td>
 								<td>{{$data->lastname}}</td>

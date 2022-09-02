@@ -28,7 +28,7 @@
 							<tr>
 								<td>{{$data->name}}</td>
 								<td>{{$data->content}}</td>
-								<td><a href="#" download="{{URL::to('/')}}/images/es/document/{{$data->image}}"><i class="fa fa-download"></i>&nbsp;Download</a>
+								<td><a href="#" download="{{asset('images/es/document/'.$data->image)}}"><i class="fa fa-download"></i>&nbsp;Download</a>
 								</td>
 								
 								<td>{{$data->created_at}}</td>

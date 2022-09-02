@@ -162,5 +162,11 @@ class EsController extends Controller
         return redirect(route('EsInformation'))->with('status','data Updated Successfully');
     }
 
+    public function EsViewComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.es.ViewSingleComplains',compact('complains'));
+    
+    }
+
 }
 

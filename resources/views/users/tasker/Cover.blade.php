@@ -147,7 +147,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-              <img src="{{URL::to('/')}}/images/{{$item->image}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
+              <img src="{{asset('images/'.$item->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{$item->lastname}}</a>

@@ -152,30 +152,44 @@ class AdminController extends Controller
     public function CreateService(Request $request){
          $request->validate([
                 'title' => 'required',
-                'image' => 'required|mimes:jpg,jpeg,png,pdf',
                 'content' => 'required|max:255',
+                'filename' => 'required',
+                'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
             ]);
 
-            $datas=new Servicetb;
-            $datas->title = $request->title;
 
-            if($request->hasFile('image')){
-                $file= $request->file('image');
-                $filename= date('YmdHi').$file->getClientOriginalName();
-                $extenstion = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/citizen/service'), $filename);
-                $datas['image']= $filename;
-            }
-                
-            $datas->content = $request->content;
-            $datas->save();
+            // if($request->hasFile('image')){
+            //     $file= $request->file('image');
+            //     $filename= date('YmdHi').$file->getClientOriginalName();
+            //     $extenstion = $file->getClientOriginalExtension();
+            //     $file-> move(public_path('images/citizen/service'), $filename);
+            //     $datas['image']= $filename;
+            // }
+
+             if($request->hasfile('filename'))
+             {
+
+                foreach($request->file('filename') as $image)
+                {
+                    $extenstion = $image->getClientOriginalExtension();
+                    $name=date('YmdHi').'.'.$image->getClientOriginalName();
+                    $image-> move(public_path('images/citizen/service'), $name); 
+                    $data[] = $name;  
+                }
+             }
+
+            $form= new Servicetb();
+            $form->title = $request->title;
+            $form->image=json_encode($data);
+            $form->content = $request->content;
+            $form->save();
 
             return redirect()->back()->with('service_added','Service content added successfully !');
 
     }
 
     public function ViewService(){
-        $servicedata=Servicetb::paginate(5);
+        $servicedata=Servicetb::orderBy('id','desc')->paginate(5);
         return view('users.Admin.ViewService',compact('servicedata'));
     }
 
@@ -192,21 +206,28 @@ class AdminController extends Controller
     public function UpdateServices(Request $request,$id){
             $request->validate([
                 'title' => 'required',
-                'image' => 'required|mimes:jpg,jpeg,png,pdf',
                 'content' => 'required|max:255',
+                'filename'=>'required',
+                'filename.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
             ]);
 
-            $datas=Servicetb::find($id);
-            $datas->title = $request->title;
-            if($request->hasFile('image')){
-                $file= $request->file('image');
-                $filename= date('YmdHi').$file->getClientOriginalName();
-                $extenstion = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/citizen/service/'), $filename);
-                $datas['image']= $filename;
-            }
-            $datas->content = $request->content;
-            $datas->save();
+            $form=Servicetb::find($id);
+             if($request->hasfile('filename'))
+             {
+
+                foreach($request->file('filename') as $image)
+                {
+                    $extenstion = $image->getClientOriginalExtension();
+                    $name=date('YmdHi').'.'.$image->getClientOriginalName();
+                    $image-> move(public_path('images/citizen/service'), $name); 
+                    $data[] = $name;  
+                }
+             }
+
+            $form->title = $request->title;
+            $form->image=json_encode($data);
+            $form->content = $request->content;
+            $form->save();
 
         return redirect(route('ViewServices'))->with('status','Service updated !');
     }

@@ -54,7 +54,7 @@ class CitizensController extends Controller
     }
 
     public function HomepageService(){
-        $servicedata=Servicetb::paginate(5);
+        $servicedata=Servicetb::orderBy('id','desc')->paginate(3);
         return view('service',compact('servicedata'));
     }
 }

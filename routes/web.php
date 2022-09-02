@@ -81,7 +81,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::get('dashboard','App\Http\Controllers\EsController@dashboard')->name('esdashboard');
 	Route::get('citizen/complains','App\Http\Controllers\EsController@CitizenComplains');
-	Route::get('forwarding/{id}','App\Http\Controllers\EsController@forwardComplains');
+	Route::get('forwarding/{id}','App\Http\Controllers\EsController@forwardComplains')->name('forwardComplain');
 	Route::get('solved/complains','App\Http\Controllers\EsController@SolvedComplains');
 	Route::get('unsolved/complains','App\Http\Controllers\EsController@UnsolvedComplains');
 	Route::get('viewstaff','App\Http\Controllers\EsController@ViewStaff');
@@ -95,6 +95,7 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::post('create/profile','App\Http\Controllers\EsController@CreateProfile')->name('changeprofile');
 	Route::get('edit/info/{id}','App\Http\Controllers\EsController@EditEsInfo')->name('editinfo');
 	Route::post('update/info/{id}','App\Http\Controllers\EsController@UpdateInfo')->name('UpdateInfo');
+	Route::get('view/complains/{id}','App\Http\Controllers\EsController@EsViewComplains')->name('esViewComplains');
 });
 
 //Tasker routing

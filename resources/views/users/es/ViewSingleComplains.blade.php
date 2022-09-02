@@ -1,8 +1,9 @@
-@extends('users.tasker.Cover')
+@extends('users.es.Cover')
 @section('content')
 @php
 	use App\Models\CitizenComplain;
 @endphp
+<br>
 <style type="text/css">
 	.image-gallery {
 		  display: flex;
@@ -59,13 +60,12 @@
 		}
 </style>
 
-<br>
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
-	 	@if(session('care_on_complain'))
+	 	@if(session('forwarded'))
                 <div class="alert alert_success"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
-                    <strong>{{session('care_on_complain')}}</strong>
+                    <strong>{{session('forwarded')}}</strong>
                 </div><br>
         @endif 
 		
@@ -81,31 +81,49 @@
 					if ($data->image == null){
 					}else{
 						?>
-						<h4><b><span class="text-info">Image</span></b></h4>
+						<h4><b><span class="text-info">Image</span></b></h4> :</a> 
 						<div class="image-gallery">
 							<span>
 								<img src="{{asset('images/citizen/'.$data->image)}}"><br>
-								<a href="{{asset('images/citizen/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i> View</a>
+							<a href="{{asset('images/citizen/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i> View</a>
 							</span>
 						</div>
 						<?php
 					}
 						
 				?>
+
 				<?php
-					$care=CitizenComplain::all()->where('id',$data->id)->where('complains_reply',null);
-					$countss=collect($care)->count();
+
+					$roles_id=$data->role_id;
+					$roler=DB::table('citizen_complains')
+						   ->join('tasker_roles', 'tasker_roles.id', '=', 'citizen_complains.role_id')
+						    ->select('citizen_complains.*','tasker_roles.name')
+						    ->where(['citizen_complains.role_id'=>$roles_id])->get();
+				?>
+
+				<?php
 					
-					if($countss == 1){
-						?>
-						<a href="{{route('CareComplains',$data->id)}}"><button class="btn btn-primary float-right">Care of it</button></a>
-						<?php
+				?>
+
+				<?php
+					$care=CitizenComplain::all()->where('id',$data->id)->where('forward','forwarded')->where('complains_reply',null);
+					$countss=collect($care)->count();
+
+					if($countss == 0){
+						foreach($roler as $tasker){
+				?>
+							<a href="{{url('es/forwarding')}}/{{$data->id}}" class="float-right"><button class="btn btn-info" type="submit" onclick="return confirm('Forward this complain to {{$tasker->name}}')">Forward&nbsp;to&nbsp;{{$tasker->name}}</button></a>
+							<?php
+							break;
+						}
 					}else{
 						?>
-						<a href="{{url('tasker/pending/complains')}}"><button class="btn btn-info float-right">Now Complain is pending</button></a>
+						<a href="{{url('es/citizen/complains')}}"><button class="btn btn-info float-right">Now Complain is pending not solved yet !</button></a>
 						<?php
 					}
 				?>
+
 				@endforeach
 			</div>
 		</div>

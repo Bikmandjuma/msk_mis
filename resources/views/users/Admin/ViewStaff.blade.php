@@ -36,7 +36,7 @@
 						@foreach($data_es as $datas)
 							<tr>
 								<td>
-									<img src="{{URL::to('/')}}/images/{{$datas->image}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
+									<img src="{asset('images/'.$datas->image)}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
 								</td>
 								<td>{{$datas->firstname}}</td>
 								<td>{{$datas->lastname}}</td>
@@ -51,7 +51,7 @@
 						@foreach($staffdata as $data)
 							<tr>
 								<td>
-									<img src="{{URL::to('/')}}/images/{{$data->image}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
+									<img src="{{asset('images/'.$data->image)}}" style="width:40px;height:40px;border-radius:50%;border:1px solid skyblue;">
 								</td>
 								<td>{{$data->firstname}}</td>
 								<td>{{$data->lastname}}</td>

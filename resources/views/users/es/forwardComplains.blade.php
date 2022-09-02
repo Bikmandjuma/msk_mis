@@ -9,7 +9,6 @@
     $counts=collect($data_counts)->count();
 ?>
 <br>
-
 <div class="row">
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
@@ -52,18 +51,7 @@
 								<td>{{$content->names}}</td>
 								<td>{{$content->phone}}</td>
 								<td>{{$emails}}</td>
-								<td>
-
-								<?php
-									foreach($roler as $tasker){
-										?>
-										<a href="{{url('es/forwarding')}}/{{$content->id}}"><button class="btn btn-success" type="submit" onclick="return confirm('Forward this complain to {{$tasker->name}}')">Forward&nbsp;to&nbsp;{{$tasker->name}}</button></a>
-
-								<?php
-									break;
-									}
-								?>
-
+								<td><a href="{{route('esViewComplains',$content->id)}}"><i class="fa fa-eye"></i> View</a>
 								</td>
 							</tr>
 							

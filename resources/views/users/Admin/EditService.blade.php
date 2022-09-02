@@ -15,25 +15,45 @@
                     <h4>Edit & Update service</h4>
                 </div>
                 <div class="card-body">
+
+                    @if (count($errors) > 0)
+                        <div class="alert alert_error">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                            </ul>
+                      </div>
+                    @endif
+
                     <form action="{{route('UpdateService',$ServiceData->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="name" value="{{$ServiceData->id}}" hidden>
                         <div class="form-group mb-3">
                             <label for="">Title</label>
                             <input type="text" name="title" value="{{$ServiceData->title}}" class="form-control" style="border:2px solid skyblue;">
-                            <span style="color: red;">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class="form-group mb-3">
                             <label for="">Content</label>
                             <input type="text" name="content" value="{{$ServiceData->content}}" class="form-control" style="border:2px solid skyblue;">
-                            <span style="color: red;">@error('content') {{$message}} @enderror</span>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="">Image</label>
-                            <img id="serv_img" src="{{URL::to('/')}}/images/citizen/service/{{$ServiceData->image}}" style="width: 200px; height: 200px;border:1px solid skyblue;"><br>
-                            <input type="file" name="image" value="{{$ServiceData->image}}" class="form-control" style="border:2px solid skyblue;" accept="image/*" id="imgInp" value="{{$ServiceData->image}}">
-                            <span style="color: red;">@error('image') {{$message}} @enderror</span>
+                        <label>Image</label>
+                        <div class="input-group control-group increment" >
+                          <input type="file" name="filename[]" class="form-control">
+                          <div class="input-group-btn"> 
+                            <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                          </div>
+                        </div>
+                        <div class="clone hide">
+                          <div class="control-group input-group" style="margin-top:10px">
+                            <input type="file" name="filename[]" class="form-control">
+                            <div class="input-group-btn"> 
+                              <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                            </div>
+                          </div>
                         </div>
                         
                         <div class="form-group mb-3">
@@ -55,4 +75,24 @@ imgInp.onchange = evt => {
   }
 }
 </script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $(".btn-success").click(function(){ 
+          var html = $(".clone").html();
+          $(".increment").after(html);
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+          $(this).parents(".control-group").remove();
+      });
+
+    });
+
+</script>
+
+
 @endsection
