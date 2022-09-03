@@ -159,10 +159,9 @@ class TaskerController extends Controller
     public function SolvingComplains($id){
         date_default_timezone_set('Africa/Kigali');
         $date=date('d-m-Y');
-        $time=date('H:i:s');
         $done='solved';
         $decision='done';
-        $profile=CitizenComplain::find($id)->update(['complains_reply'=>$done,'decision'=>$decision,'replied_date'=>$date,'replied_time'=>$time]);
+        $profile=CitizenComplain::find($id)->update(['complains_reply'=>$done,'decision'=>$decision,'replied_date'=>$date]);
         return redirect(url('tasker/solved/complains'));
     }
 
