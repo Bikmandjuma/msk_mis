@@ -103,8 +103,8 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 	Route::get('dashboard','App\Http\Controllers\TaskerController@dashboard')->name('taskerdashboard');
 	Route::get('myinformation','App\Http\Controllers\TaskerController@myinfo')->name('taskerinfo');
 	Route::get('citizen/complain','App\Http\Controllers\TaskerController@CitizenComplain');
-	Route::get('pending/complains','App\Http\Controllers\TaskerController@PendingComplain');
-	Route::get('solved/complains','App\Http\Controllers\TaskerController@SolvedComplain');
+	Route::get('pending/complains','App\Http\Controllers\TaskerController@PendingComplain')->name('unsolved');
+	Route::get('solved/complains','App\Http\Controllers\TaskerController@SolvedComplain')->name('SolveCompl');
 	Route::get('form/Files','App\Http\Controllers\TaskerController@formFile');
 	Route::post('create/Files','App\Http\Controllers\TaskerController@CreateFile')->name('createfile');
 	Route::get('view/files','App\Http\Controllers\TaskerController@ViewDocument');
@@ -115,5 +115,7 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 	Route::post('change/password','App\Http\Controllers\TaskerController@CreatePassword')->name('changepasswords');
 	Route::get('view/single/complain/{id}','App\Http\Controllers\TaskerController@SingleComplains')->name('viewsingleComplains');
 	Route::get('Care/complain/{id}','App\Http\Controllers\TaskerController@CareOnComplains')->name('CareComplains');
+	Route::get('view/single/pending/{id}','App\Http\Controllers\TaskerController@PendingComplains')->name('PendingComplains');
+	Route::get('Solving/Complain/{id}','App\Http\Controllers\TaskerController@SolvingComplains')->name('SolveComplains');
 
 });

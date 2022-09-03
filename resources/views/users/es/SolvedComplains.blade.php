@@ -9,7 +9,7 @@
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
 	<?php  
-		$data_counts=CitizenComplain::all()->where('complains_reply','done')->where('decision','done');
+		$data_counts=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done');
 		$counts=collect($data_counts)->count();
 	?>
 		<div class="card">

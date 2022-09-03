@@ -81,8 +81,8 @@
                                     <nav> 
                                         <ul id="navigation">              
                                             <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
-                                            <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Ibijyanye natwe</a></li>
-                                            <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Serivise</a></li>
+                                            <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Amakuru</a></li>
+                                            <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Serivise</a></li>
                                             <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
                                             <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
 <!--                                             <li><a href="{{url('ContactUs')}}">Duhamagare</a></li>
@@ -141,8 +141,8 @@
                                <h4>Aho wakanda</h4>
                                <ul>
                                     <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
-                                    <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Ibijyanye natwe</a></li>
-                                    <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Serivise</a></li>
+                                    <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Amakuru</a></li>
+                                    <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Serivise</a></li>
                                     <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
                                     <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
                                     <li><a href="{{route('Login')}}"><i class="fa fa-lock-open"></i>&nbsp;Login</a></li>

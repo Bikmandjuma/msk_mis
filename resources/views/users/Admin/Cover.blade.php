@@ -51,11 +51,11 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-info navbar-light" style="margin-top:-25px;">
     <!-- Left navbar links -->
-    <!-- <ul class="navbar-nav">
+    <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-    </ul> -->
+    </ul>
 
     <div class="rowtext-center">
       <div class="col-md-12">Admin Panel</div>

@@ -45,7 +45,7 @@ class TaskerController extends Controller
 
     public function SolvedComplain(){
         $rol_id=auth()->guard('tasker')->user()->role_id;
-        $solvedcomplain=CitizenComplain::where('complains_reply','solved')->where('decision','done')->where('role_id',$rol_id)->paginate(1);
+        $solvedcomplain=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done')->where('role_id',$rol_id);
 
         return view('users.tasker.SolvedComplain',compact('solvedcomplain'));
     }
@@ -149,6 +149,21 @@ class TaskerController extends Controller
         $done='pending';
         $profile=CitizenComplain::find($id)->update(['complains_reply'=>$done]);
         return back()->with("care_on_complain", "".$fname." ".$lname." , you are going to solve this complain ,now is pending until is solved !");
+    }
+
+    public function PendingComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.tasker.ViewPendingComplain',compact('complains'));
+    }
+
+    public function SolvingComplains($id){
+        date_default_timezone_set("Africa/Kigali");
+        $time=date('h:i:sa');
+        $date=date('Y-m-d');
+        $done='solved';
+        $decision='done';
+        $profile=CitizenComplain::find($id)->update(['complains_reply'=>$done,'decision'=>$decision,'replied_date'=>$date,'replied_time'=>$time]);
+        return redirect(url('tasker/solved/complains'));
     }
 
 }

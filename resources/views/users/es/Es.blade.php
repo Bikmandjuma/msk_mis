@@ -18,7 +18,7 @@ $cit_comp=CitizenComplain::all();
 $cit_counts=collect($cit_comp)->count();
 
 //Solved complains
-$solved_comp=CitizenComplain::all()->where('complains_reply','done')->where('decision','done');
+$solved_comp=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done');
 $solved_counts=collect($solved_comp)->count();
 ?>
 <div class="container">
@@ -61,7 +61,7 @@ $solved_counts=collect($solved_comp)->count();
             <div class="small-box bg-warning">
               <div class="inner">
                 <h3>{{$solved_counts}}</h3>
-                <p>Solved Complains</p>
+                <p>Solved</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
@@ -77,7 +77,7 @@ $solved_counts=collect($solved_comp)->count();
             <div class="small-box bg-danger">
               <div class="inner">
                 <h3>{{$unsolved_counts}}</h3>
-                <p>Unsolved Complains</p>
+                <p>Pending</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>

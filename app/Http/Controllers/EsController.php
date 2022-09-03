@@ -36,7 +36,7 @@ class EsController extends Controller
     } 
 
     public function SolvedComplains(){
-        $data=CitizenComplain::where('complains_reply','done')->where('decision','done')->paginate(5);
+        $data=CitizenComplain::where('complains_reply','solved')->where('decision','done')->paginate(5);
         return view('users.es.SolvedComplains', compact('data'));
     }
 

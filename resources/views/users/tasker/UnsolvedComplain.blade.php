@@ -39,7 +39,7 @@
                 <td>{{$data->complains}}</td>
                 <td>{{$data->created_at}}</td>
                 <td>{{$data->date_co}}</td>              
-                <td><a href="{{url('tasker/view/single/complain')}}/{{$data->id}}" style="color: white"></i>&nbsp;<button class="btn btn-success">Not&nbsp;yet&nbsp;solved</a></button> </td>
+                <td><a href="{{url('tasker/view/single/pending')}}/{{$data->id}}" style="color: white"></i>&nbsp;<button class="btn btn-success">Still&nbsp;Pending&nbsp;</a></button> </td>
               </tr>
               
             @endforeach
