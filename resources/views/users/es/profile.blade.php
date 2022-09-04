@@ -22,7 +22,7 @@
       <div class="card-body">
           <div class="row">
             <div class="col-md-12 text-center">
-                <img src="{{asset('images/'.{{auth()->guard('es')->user()->image)}}" style="width:150px;height:150px;border:2px solid gray;">
+                <img src="{{asset('images/'.auth()->guard('es')->user()->image)}}" style="width:150px;height:150px;border:2px solid gray;">
             </div>
           </div>
           <br>

@@ -32,7 +32,6 @@ class EsController extends Controller
                 ->update(['forward' =>$yes,'date_co' =>$date_fwd,'time_co' =>$time_fwd,]);
 
         return redirect()->back()->with('forwarded','Complain forwarded successfully !');
-    	
     } 
 
     public function SolvedComplains(){
@@ -77,10 +76,8 @@ class EsController extends Controller
                 $file-> move(public_path('images/es/document/'), $filename);
                 $datas['image']= $filename;
             }
-                
             $datas->content = $request->content;
             $datas->save();
-
         return redirect()->back()->with('file_added','New file added successfully !');
     }
 
@@ -111,9 +108,7 @@ class EsController extends Controller
         Es::whereId(auth()->guard('es')->user()->id)->update([
             'password' => Hash::make($request->new_password)
         ]);
-
         return back()->with("status", "Password changed successfully!");
-
     }
 
     function ManageProfile(){
@@ -140,9 +135,7 @@ class EsController extends Controller
             return redirect()->back()->with('profile_changed','profile changed  successfully !');
         }else{
             return redirect()->back()->with('profile_error','profile picture must be in format of jpg,jpeg,png or pdf');
-
-        }
-        
+        }   
     }
 
     public function EditEsInfo($id){
@@ -165,8 +158,6 @@ class EsController extends Controller
     public function EsViewComplains($id){
         $complains=CitizenComplain::all()->where('id',$id);
         return view('users.es.ViewSingleComplains',compact('complains'));
-    
     }
-
 }
 
