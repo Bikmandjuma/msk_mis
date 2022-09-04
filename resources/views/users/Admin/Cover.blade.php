@@ -208,14 +208,14 @@
               <li class="nav-item">
                   <a href="{{url('admin/about')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>About us</p>
+                    <p>Service</p>
                   </a>
               </li>
 
               <li class="nav-item">
                   <a href="{{route('formservice')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Services</p>
+                    <p>News</p>
                   </a>
               </li>
 
@@ -245,14 +245,14 @@
               <li class="nav-item">
                 <a href="{{url('admin/view/about')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>About us</p>
+                  <p>Service</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="{{url('admin/View/Service')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Services</p>
+                  <p>News</p>
                 </a>
               </li>
 
