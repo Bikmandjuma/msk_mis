@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('time_co')->nullable();
             $table->string('complains_reply')->nullable();
             $table->string('decision')->nullable();
-            $table->time('replied_date')->nullable();
-            $table->time('replied_time')->nullable();
+            $table->string('replied_date')->nullable();
+            $table->string('replied_time')->nullable();
             $table->timestamps();
         });
     }

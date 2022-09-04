@@ -64,7 +64,7 @@ class TaskerController extends Controller
                 $file= $request->file('image');
                 $filename= date('YmdHi').$file->getClientOriginalName();
                 $extenstion = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/tasker/document/'), $filename);
+                $file-> move(public_path('assets/images/'), $filename);
                 $datas['image']= $filename;
             }
                 
@@ -98,7 +98,7 @@ class TaskerController extends Controller
         $file= $request->file('profile_picture');
         $filename= date('YmdHi').$file->getClientOriginalName();
         $extenstion = $file->getClientOriginalExtension();
-        $file-> move(public_path('images/'), $filename);
+        $file-> move(public_path('assets/images/'), $filename);
         $profile=Tasker::find($id)->update(['image'=>$filename]);
 
         if ($profile) {

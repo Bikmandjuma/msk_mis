@@ -73,7 +73,7 @@ class EsController extends Controller
                 $file= $request->file('image');
                 $filename= date('YmdHi').$file->getClientOriginalName();
                 $extenstion = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/es/document/'), $filename);
+                $file-> move(public_path('assets/images/'), $filename);
                 $datas['image']= $filename;
             }
             $datas->content = $request->content;
@@ -128,7 +128,7 @@ class EsController extends Controller
         $file= $request->file('profile_picture');
         $filename= date('YmdHi').$file->getClientOriginalName();
         $extenstion = $file->getClientOriginalExtension();
-        $file-> move(public_path('images/'), $filename);
+        $file-> move(public_path('assets/images/'), $filename);
         $profile=Es::find($id)->update(['image'=>$filename]);
 
         if ($profile) {

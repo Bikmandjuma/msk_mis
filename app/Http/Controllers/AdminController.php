@@ -173,7 +173,7 @@ class AdminController extends Controller
                 {
                     $extenstion = $image->getClientOriginalExtension();
                     $name=date('YmdHi').'.'.$image->getClientOriginalName();
-                    $image-> move(public_path('images/citizen/service'), $name); 
+                    $image-> move(public_path('assets/images/'), $name); 
                     $data[] = $name;  
                 }
              }
@@ -219,7 +219,7 @@ class AdminController extends Controller
                 {
                     $extenstion = $image->getClientOriginalExtension();
                     $name=date('YmdHi').'.'.$image->getClientOriginalName();
-                    $image-> move(public_path('images/citizen/service'), $name); 
+                    $image-> move(public_path('assets/images/'), $name); 
                     $data[] = $name;  
                 }
              }

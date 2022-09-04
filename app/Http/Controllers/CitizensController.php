@@ -40,7 +40,7 @@ class CitizensController extends Controller
                 $file= $request->file('image');
                 $filename= date('YmdHi').$file->getClientOriginalName();
                 $extenstion = $file->getClientOriginalExtension();
-                $file-> move(public_path('images/citizen/'), $filename);
+                $file-> move(public_path('assets/images/'), $filename);
                 $data['image']= $filename;
         }
 

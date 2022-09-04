@@ -84,8 +84,8 @@
 						<h4><b><span class="text-info">File</span></b></h4> :</a> 
 						<div class="image-gallery">
 							<span>
-								<img src="{{asset('images/citizen/'.$data->image)}}"><br>
-							<a href="{{asset('images/citizen/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i> View</a>
+								<img src="{{asset('assets/images/'.$data->image)}}"><br>
+							<a href="{{asset('assets/images/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i> View</a>
 							</span>
 						</div>
 						<?php

@@ -95,7 +95,7 @@
 								?>
 								
 									<li>	
-										<img src="{{asset('images/citizen/service/'.$value)}}">
+										<img src="{{asset('assets/images/'.$value)}}">
 									</li>
 								
 								<?php

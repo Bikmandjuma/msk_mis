@@ -11,7 +11,7 @@
               <div class="card-body">
                       <div class="row">
                         <div class="col-sm-6 text-center">
-                            <img src="{{URL::to('/')}}/images/{{$data->image}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border-radius:50%;">
+                            <img src="{{asset('assets/images/'.$data->image)}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border-radius:50%;">
                         </div>
 
                         <div class="col-sm-6">

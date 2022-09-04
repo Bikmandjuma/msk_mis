@@ -15,7 +15,7 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div class="single-slider slider-height d-flex align-items-center" data-background="assets/images/masaka.jpg">
+                <div class="single-slider slider-height d-flex align-items-center" data-background="{{asset('assets/images/masaka.jpg')}}">
                     <!-- <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-8">

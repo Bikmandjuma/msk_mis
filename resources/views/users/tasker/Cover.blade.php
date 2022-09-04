@@ -17,7 +17,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ config('app.name', 'Masaka-sector') }}</title>
-  <link rel="flag icon" href="/style/images/gil/new/Denim.jpg">
+  <link rel="flag icon" href="{{asset('assets/images/flag.png')}}">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
@@ -147,7 +147,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-              <img src="{{asset('images/'.$item->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
+              <img src="{{asset('assets/images/'.$item->image)}}" class="img-circle elevation-2" alt="User Image" style="width:40px;height:40px;border-radius:50%;">
         </div>
         <div class="info">
           <a href="#" class="d-block">{{$item->lastname}}</a>

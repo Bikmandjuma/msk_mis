@@ -22,7 +22,7 @@
       <div class="card-body">
           <div class="row">
             <div class="col-md-12 text-center">
-                <img src="{{URL::to('/')}}/images/{{auth()->guard('tasker')->user()->image}}" style="width:150px;height:150px;border:2px solid gray;">
+                <img src="{{asset('assets/images/'.auth()->guard('tasker')->user()->image)}}" style="width:150px;height:150px;border:2px solid gray;">
             </div>
           </div>
           <br>

@@ -19,7 +19,7 @@ $es_id=auth()->guard('es')->user()->id;
               <div class="card-body" style="overflow: auto;">
                       <div class="row">
                         <div class="col-sm-6 text-center">
-                            <img src="{{asset('images/'.$data->image)}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border:2px solid skyblue;">
+                            <img src="{{asset('assets/images/'.$data->image)}}" class="img-circle elevation-2" alt="User Image" style="width:80px;height:80px;border:2px solid skyblue;">
                         </div>
 
                         <div class="col-sm-6">

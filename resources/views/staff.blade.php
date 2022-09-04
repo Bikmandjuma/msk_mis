@@ -24,7 +24,7 @@
 		<div class="card" style="border:2px solid skyblue;">
 			<div class="card-header text-white text-center bg-info">E/S (Executive)</div>
 			<div class="card-body text-center" style="overflow:auto;">
-				<img src="{{asset('images/'.$data->image)}}" style="width:140px;height:150px;border:2px solid black;"> 
+				<img src="{{asset('assets/images/'.$data->image)}}" style="width:140px;height:150px;border:2px solid black;"> 
 				<p><b>{{$data->firstname}}&nbsp;{{$data->lastname}}</b></p>
 				<p>{{$data->phone}}</p>
 			</div>
@@ -37,7 +37,7 @@
 		<div class="card" style="border:2px solid skyblue;">
 			<div class="card-header text-white text-center bg-info">{{$data->name}}</div>
 			<div class="card-body text-center" style="overflow:auto;">
-				<img src="{{asset('images/'.$data->image)}}" style="width:140px;height:150px;border:2px solid black;"> 
+				<img src="{{asset('assets/images/'.$data->image)}}" style="width:140px;height:150px;border:2px solid black;"> 
 				<p><b>{{$data->firstname}}&nbsp;{{$data->lastname}}</b></p>
 				<p>{{$data->phone}}</p>
 			</div>
