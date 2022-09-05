@@ -32,14 +32,14 @@
 		@if($countss == 0)
 		@else
 			
-			<ul class="list-group">
+			<ul class="list-group" style="overflow: auto;">
 				<li class="list-group-item active">{{$title->name}}</li>
 				@foreach($service_content as $content)
 					<li class="list-group-item">{{$content->content}}</li>
 				@endforeach
 			</ul><br>
 		@endif
-		
+
 	@endforeach
 
 		@if($counts == 0)
