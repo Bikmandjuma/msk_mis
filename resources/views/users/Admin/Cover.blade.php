@@ -243,13 +243,6 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{url('admin/view/about')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Service</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="{{url('admin/View/Service')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>News</p>

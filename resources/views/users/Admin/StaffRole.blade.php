@@ -1,9 +1,10 @@
 @extends('users.Admin.Cover')
 @section('content')
 <br>
-<div class="container">
-    <div class="row">
-          <div class="col-md-6">
+
+<div class="row">
+    <div class="col-md-4"></div> 
+    <div class="col-md-4">
               @if(session('role_added'))
                     <div class="alert alert_success" style="text-align:center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times; </button>
                     <strong>{{session('role_added')}}</strong>
@@ -11,7 +12,7 @@
               @endif
             <div class="card">
               <div class="card-header text-center bg-info">Register staff role</div>
-              <div class="card-body">
+              <div class="card-body" style="overflow:auto">
                 <form action="{{route('Addstaffrole')}}" method="POST">
                    @csrf  
                   <label>Name</label>
@@ -22,13 +23,17 @@
                 </form>
               </div>
             </div>
-          </div>
+    </div>
+    <div class="col-md-4"></div>      
+</div>
 
-          <div class="col-md-6">
+    <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
 
             <div class="card">
               <div class="card-header text-center bg-info"> Staff role</div>
-              <div class="card-body">
+              <div class="card-body" style="overflow: auto;">
                 <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
@@ -55,10 +60,9 @@
                 </table>
               </div>
             </div>
-            
-          </div>
-
-    </div>
+        
+      </div>
+      <div class="col-md-2"></div>
 </div>
 
 <script>

@@ -74,6 +74,8 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('delete/servive/{id}','App\Http\Controllers\AdminController@DeleteService')->name('DeleteService');
 	Route::get('edit/service/{id}','App\Http\Controllers\AdminController@EditService')->name('EditService');
 	Route::post('update/service/{id}','App\Http\Controllers\AdminController@UpdateServices')->name('UpdateService');
+	Route::get('service/content/{id}','App\Http\Controllers\AdminController@ServiveContent');
+	Route::post('Create/service/content/{id}','App\Http\Controllers\AdminController@CreateServiveContent')->name('createServiceContent');
 
 });
 

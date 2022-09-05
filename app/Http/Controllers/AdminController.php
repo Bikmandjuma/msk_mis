@@ -9,6 +9,8 @@ use App\Models\Tasker;
 use App\Models\aboutus;
 use App\Models\Es;
 use App\Models\Servicetb;
+use App\Models\servicetitle;
+use App\Models\servicecontent;
 
 use Validator;
 
@@ -50,16 +52,14 @@ class AdminController extends Controller
 
     public function CreateAbout(Request $request){
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'name' => 'required|string',
         ]);
 
-            $datas=new aboutus;
-            $datas->title = $request->title;                
-            $datas->description = $request->description;
+            $datas=new servicetitle;
+            $datas->name = $request->name;                
             $datas->save();
 
-        return redirect()->back()->with('added','New content added successfully !');
+        return redirect()->back()->with('added','New Service content added successfully !');
     }
 
     public function aboutdata(){
@@ -230,6 +230,24 @@ class AdminController extends Controller
             $form->save();
 
         return redirect(route('ViewServices'))->with('status','Service updated !');
+    }
+
+    public function ServiveContent($id){
+        $service_id=$id;
+        return view('users.Admin.servicecontent',compact('service_id'));
+    }
+
+    public function CreateServiveContent(Request $request,$id){
+        $request->validate([
+            'content' => 'required|string',
+        ]);
+
+        servicecontent::create([
+            'content'=>$request->content,
+            'service_id'=>$id,
+        ]);
+
+        return redirect()->back()->with('service_added','New service content is added !');
     }
 }
 

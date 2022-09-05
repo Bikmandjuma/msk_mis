@@ -40,7 +40,7 @@
 		  position: absolute;
 		  width: 100%;
 		  height: 100%;
-		  background: rgba(57, 57, 57, 0.502);
+		  background:rgba(57, 57, 57, 0.502);
 		  top: 0;
 		  left: 0;
 		  transform: scale(0);
