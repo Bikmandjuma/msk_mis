@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::post('Addstaffrole','App\Http\Controllers\AdminController@Addstaffrolefn')->name('Addstaffrole');
 	Route::get('add/staffmember','App\Http\Controllers\AdminController@FormRegisterStaffMember');
 	Route::post('create/staffmember','App\Http\Controllers\RigisterTaskerController@CreateStaffMember')->name('CreateStaffMember');
-	Route::get('about','App\Http\Controllers\AdminController@About');
+	Route::get('about','App\Http\Controllers\AdminController@About')->name('servicetitle');
 	Route::post('create/about','App\Http\Controllers\AdminController@CreateAbout')->name('createAbout');
 	Route::get('view/about','App\Http\Controllers\AdminController@aboutdata')->name('editabout');
 	Route::get('edit/about/{id}','App\Http\Controllers\AdminController@EditAbout');
@@ -74,8 +74,24 @@ Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
 	Route::get('delete/servive/{id}','App\Http\Controllers\AdminController@DeleteService')->name('DeleteService');
 	Route::get('edit/service/{id}','App\Http\Controllers\AdminController@EditService')->name('EditService');
 	Route::post('update/service/{id}','App\Http\Controllers\AdminController@UpdateServices')->name('UpdateService');
-	Route::get('service/content/{id}','App\Http\Controllers\AdminController@ServiveContent');
+	Route::get('service/content/{id}','App\Http\Controllers\AdminController@ServiveContent')->name('ServiceContents');
 	Route::post('Create/service/content/{id}','App\Http\Controllers\AdminController@CreateServiveContent')->name('createServiceContent');
+	Route::get('manage/passwords','App\Http\Controllers\AdminController@ManagePassword');
+	Route::post('create/passwords','App\Http\Controllers\AdminController@CreatePassword')->name('Adminchangepassword'); 
+	Route::get('manage/profiles','App\Http\Controllers\AdminController@ManageProfile');
+	Route::post('Create/profiles','App\Http\Controllers\AdminController@CreateProfile')->name('changeprofiles');
+	Route::get('View/Info','App\Http\Controllers\AdminController@Myinformation')->name('AdminInformation');
+
+	Route::get('edit/infos/{id}','App\Http\Controllers\AdminController@EditAdminInfo')->name('editinfos');
+
+	Route::post('update/infos/{id}','App\Http\Controllers\AdminController@UpdateAdminInfo')->name('UpdateInfos');
+
+	Route::get('edit/service/title/{id}','App\Http\Controllers\AdminController@EditServiceTitle')->name('EditServiceTitle');
+
+	Route::post('update/service/title/{id}','App\Http\Controllers\AdminController@UpdateServiceTitle')->name('UpdateServiceTitle');
+
+	Route::get('edit/service/content/{ids}/{id}','App\Http\Controllers\AdminController@EditServiceContent')->name('EditServiceContent');
+	Route::post('update/service/content/{ids}/{id}','App\Http\Controllers\AdminController@UpdateServiceContent')->name('UpdateServiceContent');
 
 });
 

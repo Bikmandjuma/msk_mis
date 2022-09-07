@@ -69,8 +69,9 @@
 			@endforeach
 			<div class="card-body" style="overflow:auto;">
 				<ul class="list-group">
+
 				@foreach($servicesdata as $key => $data)
-					  <li class="list-group-item"><!-- <span style="background-color:gray;color:white;padding:7px;">{{$key}} --></span>&nbsp;&nbsp;{{$data->content}}</li>&nbsp;
+					  <li class="list-group-item"></span>&nbsp;&nbsp;{{$data->content}}<a href="{{url('admin/edit/service/content')}}/{{$service_id}}/{{$data->id}}"><button class="btn btn-success float-right"><i class="fa fa-edit"></i> Edit</button></a></li>&nbsp;
 				@endforeach
 				</ul>
 			</div>

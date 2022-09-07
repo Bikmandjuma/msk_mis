@@ -16,11 +16,7 @@
 		$counts=collect($data_counts)->count();
 
 		$service_title=servicetitle::all();
-
-		// $service_data= DB::table('servicecontents')
-  //           ->join('servicetitles', 'servicetitles.id', '=', 'servicecontents.service_id')
-  //           ->select('servicecontents.*','servicecontents.content','servicetitles.name')
-		// 	->where(['servicetitles.id'=>4])->get();
+		
 	?>
 
 	@foreach($service_title as $title)
@@ -31,7 +27,6 @@
 		
 		@if($countss == 0)
 		@else
-			
 			<ul class="list-group" style="overflow: auto;">
 				<li class="list-group-item active">{{$title->name}}</li>
 				@foreach($service_content as $content)

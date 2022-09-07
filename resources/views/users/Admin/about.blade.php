@@ -48,7 +48,7 @@
 			<div class="card-body" style="overflow:auto;">
 				<ul class="list-group">
 				@foreach($servicesdata as $data)
-					  <li class="list-group-item"><span style="background-color:#eee;padding:5px;">{{$data->id}}</span>&nbsp;<a href="{{url('admin/service/content')}}/{{$data->id}}">{{$data->name}}</a></li>
+					  <li class="list-group-item"><span style="background-color:#eee;padding:5px;">{{$data->id}}</span>&nbsp;<a href="{{url('admin/service/content')}}/{{$data->id}}">{{$data->name}}</a>&nbsp;<a href="{{route('EditServiceTitle',$data->id)}}"><button class="btn btn-success float-right"><i class="fa fa-edit"></i> Edit</button></a> </li>
 				@endforeach
 				</ul>
 			</div>

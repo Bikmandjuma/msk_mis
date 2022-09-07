@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\TaskerRole;
 use App\Models\Tasker;
 use App\Models\aboutus;
+use App\Models\Admin;
 use App\Models\Es;
 use App\Models\Servicetb;
 use App\Models\servicetitle;
@@ -248,6 +249,106 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('service_added','New service content is added !');
+    }
+
+    public function ManagePassword(){
+        return view('users.Admin.Password');
+    }
+
+
+    public function CreatePassword(Request $request){
+           # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8|max:100',
+        ]);
+
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->guard('admin')->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        Admin::whereId(auth()->guard('admin')->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", "Password changed successfully!");
+    }
+
+    public function ManageProfile(){
+        return view('users.Admin.profile');
+    }
+
+    public function CreateProfile(Request $request){
+        $id=auth()->guard('admin')->user()->id;
+        $request->validate([
+            'profile_picture' => 'mimes:jpg,jpeg,png,pdf',
+        ],[
+            'profile_picture.mimes'=>'profile picture must be in format of jpg,jpeg,png or pdf',
+        ]);
+
+
+        $file= $request->file('profile_picture');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $extenstion = $file->getClientOriginalExtension();
+        $file-> move(public_path('assets/images/'), $filename);
+        $profile=Admin::find($id)->update(['image'=>$filename]);
+
+        if ($profile) {
+            return redirect()->back()->with('profile_changed','profile changed  successfully !');
+        }else{
+            return redirect()->back()->with('profile_error','profile picture must be in format of jpg,jpeg,png or pdf');
+        }   
+    } 
+
+    public function Myinformation(){
+        $info=Admin::all();
+        return view('users.Admin.myinformation',compact('info'));
+    }
+
+    public function EditAdminInfo($id){
+        $staffdata=Admin::find($id);
+        return view('users.Admin.EditInfo',compact('staffdata'));
+    }
+
+    function UpdateAdminInfo(Request $request,$id){
+        $data =Admin::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nat_id = $request->nat_id;
+        $data->save();
+        return redirect(route('AdminInformation'))->with('status','data Updated Successfully');
+    }
+
+    public function EditServiceTitle($id){
+        $data=servicetitle::find($id);
+        return view('users.Admin.EditServiceTitle',compact('data'));
+    }
+
+    public function UpdateServiceTitle(Request $request,$id){
+        $data =servicetitle::find($id);
+        $data->name = $request->name;
+        $data->save();
+        return redirect(route('servicetitle'))->with('status','data Updated Successfully');
+    }
+
+    public function EditServiceContent($ids,$id){
+        $service_title_id=$ids;
+        $data=servicecontent::find($id);
+        return view('users.Admin.EditServiceContent',compact('data','service_title_id'));
+    }
+
+    public function UpdateServiceContent(Request $request,$ids,$id){
+        $service_id=$ids;
+        $data =servicecontent::find($id);
+        $data->content = $request->content;
+        $data->save();
+        return redirect(route('ServiceContents',$service_id))->with('status','data Updated Successfully');
     }
 }
 

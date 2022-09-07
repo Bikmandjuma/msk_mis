@@ -92,12 +92,12 @@
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-40px;border:2px solid white">
-           <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+           <a href="{{url('admin/manage/passwords')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-key mr-2"></i>
             Password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+          <a href="{{url('admin/manage/profiles')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
            Profile
           </a>
@@ -223,7 +223,8 @@
 
 
           </li>
-            <!--Arcive management-->
+          
+          <!--Arcive management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
@@ -249,6 +250,27 @@
                 </a>
               </li>
 
+            </ul>
+          </li>
+
+           <!--Arcive management-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                My info
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="{{url('admin/View/Info')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Myinformation</p>
+                </a>
+              </li>
             </ul>
           </li>
 

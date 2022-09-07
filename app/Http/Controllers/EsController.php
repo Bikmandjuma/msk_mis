@@ -49,7 +49,7 @@ class EsController extends Controller
         return view('users.es.ViewStaff', compact('staffdata'));
     }
 
-     public function Myinformation(){
+    public function Myinformation(){
         $info=Es::all();
         return view('users.es.myinformation',compact('info'));
     }

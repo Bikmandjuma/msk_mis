@@ -1,4 +1,4 @@
-@extends('users.es.Cover')
+@extends('users.Admin.Cover')
 @section('content')
 <br>
 <div class="row">
@@ -18,17 +18,17 @@
       @endif
     
     <div class="card">
-      <div class="card-header text-center bg-info"><strong>{{auth()->guard('es')->user()->firstname}} profile picture</strong></div>
+      <div class="card-header text-center bg-info"><strong>{{auth()->guard('admin')->user()->firstname}} profile picture</strong></div>
       <div class="card-body">
           <div class="row">
             <div class="col-md-12 text-center">
-                <img src="{{asset('assets/images/'.auth()->guard('es')->user()->image)}}" style="width:150px;height:150px;border:2px solid gray;">
+                <img src="{{asset('assets/images/'.auth()->guard('admin')->user()->image)}}" style="width:150px;height:150px;border:2px solid gray;">
             </div>
           </div>
           <br>
           <div class="row">
             <div class="col-md-12 text-center">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#profile"><i class="fa fa-edit"></i>&nbsp; Edit</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#Adminprofile"><i class="fa fa-edit"></i>&nbsp; Edit</button>
             </div>
           </div>
       </div>
@@ -39,7 +39,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Adminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('changeprofile')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('changeprofiles')}}" method="POST" enctype="multipart/form-data">
             @csrf            
             <img id="blah" style="width:120px;height:120px;"/><br>
             <input name="profile_picture" type="file" accept="image/*" id="imgInp" class="form-control" required><br>
@@ -72,4 +72,3 @@ imgInp.onchange = evt => {
 </script>
 
 @endsection
-
