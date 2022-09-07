@@ -278,7 +278,7 @@ class AdminController extends Controller
     }
 
     public function ManageProfile(){
-        return view('users.Admin.profile');
+        return view('users.Admin.Profile');
     }
 
     public function CreateProfile(Request $request){
