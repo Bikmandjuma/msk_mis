@@ -9,6 +9,13 @@
               <strong>{{session('fail')}}</strong>
             </div><br>
         @endif
+
+        @if(Session::has('message'))
+            <div class="alert alert_success" style="text-align: center;"> <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
+              <strong>{{Session::get('message')}}</strong>
+            </div><br>
+        @endif
+        
       <div class="container">
         <div class="row">
           <div class="col-xl-12 col-lg-12 col-md-6 mx-auto">
@@ -44,7 +51,7 @@
                            </div>
                            <div class="col-xl-12 col-lg-12 col-md-12 mb-3">
                               <p class="text-center">
-                                 <a href="#" style="color:black;"><i class="fa fa-key" style="color:black;">
+                                 <a href="{{route('forget.password.get')}}" style="color:black;"><i class="fa fa-key" style="color:black;">
                                  </i> Forgot password
                                  </a>
                               </p>
