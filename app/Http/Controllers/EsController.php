@@ -159,5 +159,10 @@ class EsController extends Controller
         $complains=CitizenComplain::all()->where('id',$id);
         return view('users.es.ViewSingleComplains',compact('complains'));
     }
+
+    public function AllComplains(){
+        $data=CitizenComplain::paginate(10);
+        return view('users.es.AllComplains',compact('data'));
+    }
 }
 

@@ -120,6 +120,7 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::get('edit/info/{id}','App\Http\Controllers\EsController@EditEsInfo')->name('editinfo');
 	Route::post('update/info/{id}','App\Http\Controllers\EsController@UpdateInfo')->name('UpdateInfo');
 	Route::get('view/complains/{id}','App\Http\Controllers\EsController@EsViewComplains')->name('esViewComplains');
+	Route::get('All/Citizen/Complain','App\Http\Controllers\EsController@AllComplains')->name('allComplain');
 });
 
 //Tasker routing
