@@ -164,5 +164,15 @@ class EsController extends Controller
         $data=CitizenComplain::paginate(10);
         return view('users.es.AllComplains',compact('data'));
     }
+
+    public function SearchComplain(Request $request,$search){
+        $advance_qry = trim($request->query('search'));
+         $requestData = ['names', 'complains'];
+          $complains = CitizenComplain::where(function($q) use($requestData, $advance_qry) {
+                                foreach ($requestData as $field)
+                                   $q->orWhere($field, 'like', "%{$advance_qry}%");
+                        })->get();
+        return view('users.es.SearchComplains',compact('complains'));
+    }
 }
 

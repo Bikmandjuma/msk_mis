@@ -1,4 +1,4 @@
-@extends('users.es.Cover')
+@extends('users.Tasker.Cover')
 @section('content')
 
 @php
@@ -6,23 +6,20 @@ use App\Models\CitizenComplain;
 @endphp
 
 <?php
-	$data_counts=CitizenComplain::all();
+    $rol_id=auth()->guard('tasker')->user()->role_id;
+	$data_counts=CitizenComplain::all()->where('forward','!=',null)->where('role_id',$rol_id);
 	$counts=collect($data_counts)->count();
 
-	//Unforwarded complains
-	$Unforwarded_counts=CitizenComplain::all()->where('forward',null)->where('complains_reply',null)->where('decision',null);
-	$counts_unforwarded=collect($Unforwarded_counts)->count();
-
 	//Forwarded complains
-	$forward_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply',null)->where('decision',null);
+	$forward_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply',null)->where('decision',null)->where('role_id',$rol_id);
 	$counts_forward=collect($forward_counts)->count();
 
 	//Count solved complains
-	$solved_counts=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done');
+	$solved_counts=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done')->where('role_id',$rol_id);;
 	$counts_solved=collect($solved_counts)->count();
 
 	//Count pending complains
-	$pending_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply','pending')->where('decision',null);
+	$pending_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply','pending')->where('decision',null)->where('role_id',$rol_id);;
 	$counts_pending=collect($pending_counts)->count();
 ?>
 <br>
@@ -60,10 +57,8 @@ use App\Models\CitizenComplain;
 									$btn='<a href="#pending" data-toggle="modal"><button id="primary" class="btn btn-primary">Pending</button></a>';
 								}elseif($content->complains_reply == "solved") {
 									$btn='<a href="#solved" data-toggle="modal"><button class="btn btn-success">Solved</button></a>';
-								}elseif($content->complains_reply == null and $content->forward == null) {
-									$btn='<a href="#Unforwarded" data-toggle="modal"><button class="btn btn-danger">Unforwarded</button></a>';
-								}elseif($content->complains_reply == null) {
-									$btn='<a href="#forwarded" data-toggle="modal"><button class="btn btn-secondary">Forwarded</button></a>';
+								}elseif($content->forward != null) {
+									$btn='<a href="#forwarded" data-toggle="modal"><button class="btn btn-danger">Forwarded</button></a>';
 								}
 							?>
 
@@ -105,7 +100,7 @@ use App\Models\CitizenComplain;
                 </button>
             </div>
             <div class="modal-body">
-                <p>All pending complains&nbsp;&nbsp;<span class="badge badge-primary"><?php echo $counts_pending;?></span> <a href="{{url('es/unsolved/complains')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
+                <p>All pending complains&nbsp;&nbsp;<span class="badge badge-primary"><?php echo $counts_pending;?></span> <a href="{{url('tasker/pending/complains')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -126,7 +121,7 @@ use App\Models\CitizenComplain;
                 </button>
             </div>
             <div class="modal-body">
-                <p>All Solved complains&nbsp;&nbsp;<span class="badge badge-success"><?php echo $counts_solved;?></span> <a href="{{url('es/solved/complains')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
+                <p>All Solved complains&nbsp;&nbsp;<span class="badge badge-success"><?php echo $counts_solved;?></span> <a href="{{url('tasker/solved/complains')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -141,14 +136,14 @@ use App\Models\CitizenComplain;
 <div class="modal fade" id="forwarded">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-secondary text-white">
+            <div class="modal-header bg-danger text-white">
                 <h5 class="modal-title">Citizen complains</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>This complain is already forwarded to staff member but not seen yet&nbsp;&nbsp;<span class="badge badge-secondary"><?php echo $counts_forward;?></span></p>
+                <p>This complain is already forwarded to you, but not seen yet&nbsp;&nbsp;<span class="badge badge-danger"><?php echo $counts_forward;?></span> <a href="{{url('tasker/dashboard')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -157,26 +152,5 @@ use App\Models\CitizenComplain;
     </div>
 </div>
 <!--End Forwarded complains -->
-
-<!-- start UnForwarded complains -->
-<div class="modal fade" id="Unforwarded">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title">Citizen complains</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>All unforwarded complains &nbsp;&nbsp;<span class="badge badge-danger"><?php echo $counts_unforwarded;?></span><a href="{{url('es/citizen/complains')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End UnForwarded complains -->
 @endsection
 

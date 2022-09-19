@@ -45,7 +45,7 @@ class TaskerController extends Controller
 
     public function SolvedComplain(){
         $rol_id=auth()->guard('tasker')->user()->role_id;
-        $solvedcomplain=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done')->where('role_id',$rol_id);
+        $solvedcomplain=CitizenComplain::where('complains_reply','solved')->where('decision','done')->where('role_id',$rol_id)->paginate(5);
 
         return view('users.tasker.SolvedComplain',compact('solvedcomplain'));
     }
@@ -165,6 +165,12 @@ class TaskerController extends Controller
         $profile=DB::table('citizen_complains')->where('id',$id)
                 ->update(['complains_reply'=>$done,'decision'=>$decision,'replied_date'=>$date,'replied_time'=>$time,]);
         return redirect(url('tasker/solved/complains'));
+    }
+
+    public  function AllComplainss(){
+        $rol_id=auth()->guard('tasker')->user()->role_id;
+        $data=CitizenComplain::where('role_id',$rol_id)->paginate(10);
+        return view('users.tasker.AllComplains',compact('data'));
     }
 
 }

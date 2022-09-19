@@ -121,6 +121,7 @@ Route::group(['prefix' => 'es','middleware' => 'esauth'], function () {
 	Route::post('update/info/{id}','App\Http\Controllers\EsController@UpdateInfo')->name('UpdateInfo');
 	Route::get('view/complains/{id}','App\Http\Controllers\EsController@EsViewComplains')->name('esViewComplains');
 	Route::get('All/Citizen/Complain','App\Http\Controllers\EsController@AllComplains')->name('allComplain');
+	Route::post('Search/Complain/{search}','App\Http\Controllers\EsController@SearchComplain')->name('SearchingComplain');
 });
 
 //Tasker routing
@@ -142,5 +143,6 @@ Route::group(['prefix' => 'tasker','middleware' => 'taskerauth'], function () {
 	Route::get('Care/complain/{id}','App\Http\Controllers\TaskerController@CareOnComplains')->name('CareComplains');
 	Route::get('view/single/pending/{id}','App\Http\Controllers\TaskerController@PendingComplains')->name('PendingComplains');
 	Route::get('Solving/Complain/{id}','App\Http\Controllers\TaskerController@SolvingComplains')->name('SolveComplains');
+	Route::get('All/Citizen/Complains','App\Http\Controllers\TaskerController@AllComplainss')->name('allComplains');
 
 });
