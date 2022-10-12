@@ -23,7 +23,7 @@
           <div class="row justify-content-center">
               <div class="col-md-6">
                   <div class="card">
-                      <div class="card-header text-center bg-info text-white"><b>Reset Password</b></div>
+                      <div class="card-header text-center bg-info text-white"><h2><b>Reset password here</b></h2></div>
                       <div class="card-body">
       
                           <form action="{{ route('reset.password.post') }}" method="POST">
@@ -41,7 +41,7 @@
                               </div>
       
                               <div class="form-group row">
-                                  <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                  <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
                                   <div class="col-md-6">
                                       <input type="password" id="password" class="form-control" name="password" autofocus>
                                       @if ($errors->has('password'))
@@ -51,7 +51,7 @@
                               </div>
       
                               <div class="form-group row">
-                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm New Password</label>
                                   <div class="col-md-6">
                                       <input type="password" id="password-confirm" class="form-control" name="password_confirmation" autofocus>
                                       @if ($errors->has('password_confirmation'))
