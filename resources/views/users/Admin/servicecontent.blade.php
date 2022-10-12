@@ -28,7 +28,8 @@
 				<form action="{{route('createServiceContent',$id)}}" method="POST">
 				@csrf
 					<label>Enter Content</label>
-					<input name="content" placeholder="enter content" class="form-control" value="{{old('content')}}">
+					<textarea name="content" rows="3" class="form-control" value="{{old('content')}}" autofocus>
+					</textarea>
 					<span style="color: red;">@error('content') {{$message}} @enderror</span>
 					<br>
 					<button class="btn btn-primary float-right" type="submit" name="submit">Submit</button>

@@ -169,7 +169,7 @@ class TaskerController extends Controller
 
     public  function AllComplainss(){
         $rol_id=auth()->guard('tasker')->user()->role_id;
-        $data=CitizenComplain::where('role_id',$rol_id)->paginate(10);
+        $data=CitizenComplain::where('role_id',$rol_id)->where('forward','!=',null)->paginate(10);
         return view('users.tasker.AllComplains',compact('data'));
     }
 

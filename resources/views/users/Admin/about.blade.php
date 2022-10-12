@@ -19,7 +19,7 @@
 				<form action="{{route('createAbout')}}" method="POST">
 				@csrf
 					<label>Service title</label>
-					<input name="name" placeholder="enter name" class="form-control" value="{{old('name')}}">
+					<textarea name="name" placeholder="enter name" class="form-control" value="{{old('name')}}" autofocus rows="3"></textarea>
 					<span style="color: red;">@error('name') {{$message}} @enderror</span>
 					<br>
 					<button class="btn btn-primary" type="submit" name="submit">Submit</button>&nbsp;&nbsp;<button class="btn btn-danger" type="reset" name="submit">Reset</button>

@@ -71,7 +71,7 @@
 		
 		<div class="card">
 			<div class="card-header text-center bg-info">Citizen complains</div>
-			<div class="card-body text-center" style="overflow:auto;">
+			<div class="card-body" style="overflow:auto;">
 				@foreach($complains as $data)
 				<h4><b><span class="text-info">Names </span>: {{$data->names}}</b></h4>
 				<hr>
@@ -81,7 +81,7 @@
 					if ($data->image == null){
 					}else{
 						?>
-						<h4><b><span class="text-info">File</span></b></h4> :</a> 
+						<h4><b><span class="text-info">File :</span></b></h4></a> 
 						<div class="image-gallery">
 							<span>
 								<img src="{{asset('assets/images/'.$data->image)}}"><br>
@@ -119,7 +119,7 @@
 						}
 					}else{
 						?>
-						<a href="{{url('es/citizen/complains')}}"><button class="btn btn-info float-right">Now Complain is pending not solved yet !</button></a>
+						<a href="{{url('es/All/Citizen/Complain')}}"><button class="btn btn-info float-right">Now Complain is pending not solved yet !</button></a>
 						<?php
 					}
 				?>

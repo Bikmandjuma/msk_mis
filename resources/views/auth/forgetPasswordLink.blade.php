@@ -1,4 +1,4 @@
-@extends('users.citizen.Cover')
+@extends('auth.Cover')
 @section('content')
 <main class="login-form">
   <div class="cotainer">

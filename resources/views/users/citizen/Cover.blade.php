@@ -1,3 +1,10 @@
+<?php
+  use App\Models\es;
+  $es=es::all();
+  foreach ($es as $esdata) {
+    $esdatas=$esdata['phone'];
+  }
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -52,7 +59,8 @@
                                     <ul>     
                                         <li><i class="fas fa-map-marker-alt"></i>Kigali ,Kicukiro ,Masaka </li>
                                         <!-- <li><i class="fas fa-envelope"></i>ouremail@gmail.com</li> -->
-                                        <li><i class="fas fa-phone"></i>+250788862020</li>
+
+                                        <li><a href="https://wa.me/+25{{$esdatas}}"><i class="fas fa-phone"></i>+25{{$esdatas}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
@@ -71,9 +79,8 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                <h3 style="color:#295684;"><b>MASAKA&nbsp;SECTOR</b></h3>
-<!--                             <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
- -->                                </div>
+                                <img src="assets/images/logo.png" alt="">
+                             </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->
@@ -155,10 +162,9 @@
                            <div class="footer-tittle">
                                <h4>Aho wadusanga (address)</h4>
                                <ul>
-                                <li><a href="#"><i class="fas fa-phone"></i> +250788862020</a></li>
-                                <!-- <li><a href="#"><i class="fas fa-envelope"></i> ouremail@gmail.com</a></li> -->
-                                <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
-                            </ul>
+                                  <li><a href="https://wa.me/+25{{$esdatas}}"><i class="fas fa-phone"></i>+25{{$esdatas}}</a></li>
+                                  <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
+                              </ul>
                            </div>
                            <!-- social -->
                             <div class="footer-social">

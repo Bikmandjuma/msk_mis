@@ -47,6 +47,7 @@ use App\Models\CitizenComplain;
 					<tbody>
 						@foreach($data as $content)
 							<?php
+							$btn=null;
 								if($content->email == null){
 									$emails='- - - ';
 								}else{
@@ -74,7 +75,7 @@ use App\Models\CitizenComplain;
 						@endforeach
 						<tr class="text-center">
 							@if($counts == 0)
-								<td colspan="4">No data found !</td>
+								<td colspan="5">No data found !</td>
 							@endif
 						</tr>
 					</tbody>
@@ -143,7 +144,7 @@ use App\Models\CitizenComplain;
                 </button>
             </div>
             <div class="modal-body">
-                <p>This complain is already forwarded to you, but not seen yet&nbsp;&nbsp;<span class="badge badge-danger"><?php echo $counts_forward;?></span> <a href="{{url('tasker/dashboard')}}" class="float-right"><i class="fa fa-eye"></i> View</a></p>
+                <p>This complain is already forwarded to you, but not seen yet&nbsp;&nbsp;<span class="badge badge-danger"><?php echo $counts_forward;?></span> <a href="{{url('tasker/dashboard')}}" class="float-right"><i class="fa fa-eye"></i>&nbsp;View</a></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

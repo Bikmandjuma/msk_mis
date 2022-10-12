@@ -12,6 +12,7 @@ use App\Models\Es;
 use App\Models\Servicetb;
 use App\Models\servicetitle;
 use App\Models\servicecontent;
+use App\Models\CitizenComplain;
 
 use Validator;
 
@@ -350,5 +351,31 @@ class AdminController extends Controller
         $data->save();
         return redirect(route('ServiceContents',$service_id))->with('status','data Updated Successfully');
     }
+
+    public function UnsolvedComplains(){
+        $data=CitizenComplain::where('forward','forwarded')->where('complains_reply','pending')->where('decision',null)->paginate(5);
+        return view('users.Admin.PendingComplains',compact('data'));
+    }
+
+    public function ViewUnsolvedComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.Admin.ViewSingleComplains',compact('complains'));
+    }
+
+    public function SolvedComplains(){
+        $data=CitizenComplain::where('complains_reply','solved')->where('decision','done')->paginate(5);
+        return view('users.Admin.SolvedComplain', compact('data'));
+    }
+
+    public function ViewSingleSolvedComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.Admin.ViewSingleSolvedComplains',compact('complains'));
+    }
+
+    public function ViewAllComplains(){
+        $data=CitizenComplain::paginate(10);
+        return view('users.Admin.AllComplains',compact('data'));
+    }
+
 }
 
