@@ -1,26 +1,10 @@
-
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <main class="login-form">
-      <div class="cotainer">
-          <div class="row justify-content-center">
-              <div class="col-md-6 text-center">
-              	<h2 style="font-family:sans-serif;"><b>Masaka Sector</b> </h2>
-                  <div class="card">
-                      <div class="card-header bg-success text-white"><b><h2>Forget Password Email</h2></b></div>
-                      <div class="card-body">
-							<h4>You can reset password from the bellow link:</h4><br>
-							<hr>
-							<button class="btn btn-success text-white"><a href="{{ route('reset.password.get', $token) }}" style="color: white;"><b>Click here to reset password&nbsp;<i class=" fa fa-angle-double-right"></i> </b></a></button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </main>
+<div style="background-color:green;text-align: center;border-radius:10px;">
+	<h2 style="color:white;"><u>Forget Password Email</u></h2>
+	   <br>
+		<p style="color:white;font-size:20px;">You can reset password from bellow link:</p>
+	<br>
+	<hr>
+<button style="background-color:white;color: white;border-radius:5px;padding: 10px;">
+	<a href="{{ route('reset.password.get', $token) }}" style="color:green;text-decoration: none;font-size:15px;">Click here to reset password</a>
+</button>	
+</div>
