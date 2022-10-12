@@ -134,6 +134,34 @@
             </a>
           </li>
 
+          <!--Home page management-->
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Homepage
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                  <a href="{{url('admin/about')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Service</p>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{route('formservice')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>News</p>
+                  </a>
+              </li>
+
+            </ul>
+
           <!--Citizen management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -161,45 +189,7 @@
               </li>
             </ul>
 
-
           </li>
-
-
-          <!--Home page management-->
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>
-                Homepage
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-      
-             <!--  <li class="nav-item">
-                  <a href="{{url('admin/homepage')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>home</p>
-                  </a>
-              </li> -->
-
-              <li class="nav-item">
-                  <a href="{{url('admin/about')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Service</p>
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{route('formservice')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>News</p>
-                  </a>
-              </li>
-
-            </ul>
-
 
           </li>
           

@@ -1,3 +1,10 @@
+<?php
+  use App\Models\Es;
+  $es=Es::all();
+  foreach ($es as $esdata) {
+    $esdatas=$esdata['phone'];
+  }
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -52,13 +59,13 @@
                                     <ul>     
                                         <li><i class="fas fa-map-marker-alt"></i>Kigali ,Kicukiro ,Masaka </li>
                                         <!-- <li><i class="fas fa-envelope"></i>ouremail@gmail.com</li> -->
-                                        <li><i class="fas fa-phone"></i>+250788862020</li>
+                                        <li><a href="https://wa.me/+25{{$esdatas}}"><i class="fas fa-phone"></i>+250788862020</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">    
                                         <li><a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a></li>
-                                       <li> <a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                       <li> <a href="https://wa.me/+25{{$esdatas}}"><i class="fab fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
