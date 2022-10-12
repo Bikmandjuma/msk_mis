@@ -38,6 +38,8 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 
+Route::get('cooltest', [ForgotPasswordController::class, 'testss']);
+
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 //staff member on homepage

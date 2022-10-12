@@ -108,9 +108,6 @@ class ForgotPasswordController extends Controller
 
       	}
 
-
-
-
           $request->validate([
               'email' => 'required|email|exists:admins',
           ]);
@@ -137,6 +134,10 @@ class ForgotPasswordController extends Controller
        */
       public function showResetPasswordForm($token) { 
          return view('auth.forgetPasswordLink', ['token' => $token]);
+      }
+
+      public function testss() { 
+         return view('auth.forgetPasswordLink');
       }
   
       /**
