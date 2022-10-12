@@ -1,5 +1,5 @@
 <?php
-  use App\Models\es;
+  use App\Models\Es;
   $es=es::all();
   foreach ($es as $esdata) {
     $esdatas=$esdata['phone'];
