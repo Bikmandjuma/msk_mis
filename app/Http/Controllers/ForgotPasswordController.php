@@ -135,10 +135,6 @@ class ForgotPasswordController extends Controller
       public function showResetPasswordForm($token) { 
          return view('auth.forgetPasswordLink', ['token' => $token]);
       }
-
-      public function testss() { 
-         return view('auth.forgetPasswordLink');
-      }
   
       /**
        * Write code on Method

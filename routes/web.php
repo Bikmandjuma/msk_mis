@@ -29,6 +29,10 @@ Route::get('contacts', function () {
     return view('Contacts');
 });
 
+Route::get('testcool', function () {
+    return view('email.forgetPassword');
+});
+
 //forgot password
 Route::post('phone', [ForgotPasswordController::class, 'phone'])->name('phone');
 
@@ -37,8 +41,6 @@ Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPassw
 Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
 
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-
-Route::get('cooltest', [ForgotPasswordController::class, 'testss']);
 
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
