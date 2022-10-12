@@ -66,7 +66,7 @@
                                 <div class="header-info-right">
                                     <ul class="header-social">    
                                         <li><a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a></li>
-                                       <li> <a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                       <li> <a href="https://wa.me/+25{{$esdatas}}"><i class="fab fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                            <!-- social -->
                             <div class="footer-social">
                                 <a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                 <a href="https://wa.me/+25{{$esdatas}}"><i class="fab fa-whatsapp"></i></a>
                             </div>
 
                        </div>
