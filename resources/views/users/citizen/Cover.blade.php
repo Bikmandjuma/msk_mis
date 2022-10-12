@@ -79,8 +79,8 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                <img src="assets/images/logo.png" alt="">
-                             </div>
+                                    <img src="assets/images/logo.png" alt="">
+                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->

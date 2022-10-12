@@ -71,9 +71,8 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                <h3 style="color:#295684;"><b>MASAKA&nbsp;SECTOR</b></h3>
-<!--                             <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
- -->                                </div>
+                                    <img src="assets/images/logo.png" alt="">
+                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->
