@@ -3,13 +3,14 @@
 <?php
   use Illuminate\Support\Facades\DB;
   use App\Models\CitizenComplain;
+  use App\Models\taskerfile;
 ?>
 <br>
 <?php
 //All complains
 $roler_id=auth()->guard('tasker')->user()->role_id;
 
-$all_complains=CitizenComplain::all()->where('role_id',$roler_id);
+$all_complains=CitizenComplain::all()->where('forward','!=',null)->where('role_id',$roler_id);
 $counts_all_complains=collect($all_complains)->count();
 
 
@@ -22,12 +23,15 @@ $counts_pending_complains=collect($pending_complains)->count();
 $solved_complains=CitizenComplain::all()->where('role_id',$roler_id)->where('complains_reply','solved')->where('decision','done');
 $counts_solved_complains=collect($solved_complains)->count();
 
+$files=taskerfile::all();
+$counts_files=collect($files)->count();
+
 ?>
 <div class="container">
     <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <a href="{{url('tasker/dashboard')}}">
+            <a href="{{route('allComplains')}}">
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{$counts_all_complains}}</h3>
@@ -47,7 +51,7 @@ $counts_solved_complains=collect($solved_complains)->count();
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$counts_pending_complains}}</h3>
-                <p>Pending(Unsolved complains)</p>
+                <p>Pending complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
@@ -78,7 +82,7 @@ $counts_solved_complains=collect($solved_complains)->count();
             <a href="{{url('tasker/view/files')}}">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
+                <h3>{{$counts_files}}</h3>
                 <p>All files (documents)</p>
               </div>
               <div class="icon">

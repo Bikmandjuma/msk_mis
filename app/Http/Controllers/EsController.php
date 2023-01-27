@@ -49,7 +49,7 @@ class EsController extends Controller
         return view('users.es.ViewStaff', compact('staffdata'));
     }
 
-     public function Myinformation(){
+    public function Myinformation(){
         $info=Es::all();
         return view('users.es.myinformation',compact('info'));
     }
@@ -158,6 +158,21 @@ class EsController extends Controller
     public function EsViewComplains($id){
         $complains=CitizenComplain::all()->where('id',$id);
         return view('users.es.ViewSingleComplains',compact('complains'));
+    }
+
+    public function AllComplains(){
+        $data=CitizenComplain::paginate(10);
+        return view('users.es.AllComplains',compact('data'));
+    }
+
+    public function SearchComplain(Request $request,$search){
+        $advance_qry = trim($request->query('search'));
+         $requestData = ['names', 'complains'];
+          $complains = CitizenComplain::where(function($q) use($requestData, $advance_qry) {
+                                foreach ($requestData as $field)
+                                   $q->orWhere($field, 'like', "%{$advance_qry}%");
+                        })->get();
+        return view('users.es.SearchComplains',compact('complains'));
     }
 }
 

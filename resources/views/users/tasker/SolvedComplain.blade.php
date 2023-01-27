@@ -7,9 +7,14 @@
 <br>
 <div class="row">
   <div class="col-md-12">
+  <?php
+    $rol_id=auth()->guard('tasker')->user()->role_id;
+    $count_compl=CitizenComplain::all()->where('role_id',$rol_id)->where('complains_reply','solved')->where('decision','done');
+    $counts=collect($count_compl)->count();
 
+  ?>
     <div class="card">
-      <div class="card-header text-white text-center" style="background-color: teal;">Solved Complains</div>
+      <div class="card-header text-white text-center" style="background-color: teal;">Solved Complains<span class="badge badge-light float-right">{{$counts}}</span></div>
       <div class="card-body" style="overflow:auto;">
         <table class="table table-striped table-bordered">
           <thead>
@@ -43,10 +48,6 @@
             @endforeach
 
             <?php
-              $rol_id=auth()->guard('tasker')->user()->role_id;
-              $count_compl=CitizenComplain::all()->where('role_id',$rol_id)->where('complains_reply','solved')->where('decision','done');
-              $counts=collect($count_compl)->count();
-
               if ($counts == 0) {
                 echo '
                     <tr>
@@ -60,7 +61,7 @@
         </table>
       </div>
     </div>
-
+    {{$solvedcomplain->links()}}
   </div>
 </div> 
 

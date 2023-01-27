@@ -1,3 +1,10 @@
+<?php
+  use App\Models\Es;
+  $es=Es::all();
+  foreach ($es as $esdata) {
+    $esdatas=$esdata['phone'];
+  }
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -52,13 +59,14 @@
                                     <ul>     
                                         <li><i class="fas fa-map-marker-alt"></i>Kigali ,Kicukiro ,Masaka </li>
                                         <!-- <li><i class="fas fa-envelope"></i>ouremail@gmail.com</li> -->
-                                        <li><i class="fas fa-phone"></i>+250788862020</li>
+
+                                        <li><a href="https://wa.me/+25{{$esdatas}}"><i class="fas fa-phone"></i>+25{{$esdatas}}</a></li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">    
                                         <li><a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a></li>
-                                       <li> <a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                       <li> <a href="https://wa.me/+25{{$esdatas}}"><i class="fab fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -71,9 +79,8 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-1 col-md-1">
                                 <div class="logo">
-                                <h3 style="color:#295684;"><b>MASAKA&nbsp;SECTOR</b></h3>
-<!--                             <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
- -->                                </div>
+                                    <img src="assets/images/logo.png" alt="">
+                                </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->
@@ -81,7 +88,7 @@
                                     <nav> 
                                         <ul id="navigation">              
                                             <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
-                                            <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Amakuru</a></li>
+                                            <li><a href="{{url('Services')}}"><i class="fa fa-list"></i> Amakuru</a></li>
                                             <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Serivise</a></li>
                                             <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
                                             <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
@@ -141,7 +148,7 @@
                                <h4>Aho wakanda</h4>
                                <ul>
                                     <li><a href="{{url('/')}}"><i class="fa fa-home"></i> Ahabanza</a></li>
-                                    <li><a href="{{url('Services')}}"><i class="fa fa-wrench"></i> Amakuru</a></li>
+                                    <li><a href="{{url('Services')}}"><i class="fa fa-list"></i> Amakuru</a></li>
                                     <li><a href="{{url('About')}}"><i class="fa fa-list"></i> Serivise</a></li>
                                     <li><a href="{{url('cool')}}"><i class="fa fa-question"></i> Waba ufite ikibazo</a></li>
                                     <li><a href="{{url('Staff')}}"><i class="fa fa-users"></i> Abakozi</a></li>
@@ -155,15 +162,14 @@
                            <div class="footer-tittle">
                                <h4>Aho wadusanga (address)</h4>
                                <ul>
-                                <li><a href="#"><i class="fas fa-phone"></i> +250788862020</a></li>
-                                <!-- <li><a href="#"><i class="fas fa-envelope"></i> ouremail@gmail.com</a></li> -->
-                                <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
-                            </ul>
+                                  <li><a href="https://wa.me/+25{{$esdatas}}"><i class="fas fa-phone"></i>+25{{$esdatas}}</a></li>
+                                  <li><a href="#"><i class="fas fa-map-marker-alt"></i> KIGALI ,KICUKIRO ,MASAKA</a></li>
+                              </ul>
                            </div>
                            <!-- social -->
                             <div class="footer-social">
                                 <a href="https://twitter.com/MasakaSector?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fab fa-twitter"></i></a>
-                                 <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                 <a href="https://wa.me/+25{{$esdatas}}"><i class="fab fa-whatsapp"></i></a>
                             </div>
 
                        </div>

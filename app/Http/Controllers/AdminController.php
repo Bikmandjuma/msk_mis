@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\TaskerRole;
 use App\Models\Tasker;
 use App\Models\aboutus;
+use App\Models\Admin;
 use App\Models\Es;
 use App\Models\Servicetb;
+use App\Models\servicetitle;
+use App\Models\servicecontent;
+use App\Models\CitizenComplain;
 
 use Validator;
 
@@ -50,16 +54,14 @@ class AdminController extends Controller
 
     public function CreateAbout(Request $request){
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'name' => 'required|string',
         ]);
 
-            $datas=new aboutus;
-            $datas->title = $request->title;                
-            $datas->description = $request->description;
+            $datas=new servicetitle;
+            $datas->name = $request->name;                
             $datas->save();
 
-        return redirect()->back()->with('added','New content added successfully !');
+        return redirect()->back()->with('added','New Service content added successfully !');
     }
 
     public function aboutdata(){
@@ -231,5 +233,149 @@ class AdminController extends Controller
 
         return redirect(route('ViewServices'))->with('status','Service updated !');
     }
+
+    public function ServiveContent($id){
+        $service_id=$id;
+        return view('users.Admin.servicecontent',compact('service_id'));
+    }
+
+    public function CreateServiveContent(Request $request,$id){
+        $request->validate([
+            'content' => 'required|string',
+        ]);
+
+        servicecontent::create([
+            'content'=>$request->content,
+            'service_id'=>$id,
+        ]);
+
+        return redirect()->back()->with('service_added','New service content is added !');
+    }
+
+    public function ManagePassword(){
+        return view('users.Admin.Password');
+    }
+
+
+    public function CreatePassword(Request $request){
+           # Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8|max:100',
+        ]);
+
+
+        #Match The Old Password
+        if(!Hash::check($request->old_password, auth()->guard('admin')->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+
+        #Update the new Password
+        Admin::whereId(auth()->guard('admin')->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+        return back()->with("status", "Password changed successfully!");
+    }
+
+    public function ManageProfile(){
+        return view('users.Admin.Profile');
+    }
+
+    public function CreateProfile(Request $request){
+        $id=auth()->guard('admin')->user()->id;
+        $request->validate([
+            'profile_picture' => 'mimes:jpg,jpeg,png,pdf',
+        ],[
+            'profile_picture.mimes'=>'profile picture must be in format of jpg,jpeg,png or pdf',
+        ]);
+
+
+        $file= $request->file('profile_picture');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $extenstion = $file->getClientOriginalExtension();
+        $file-> move(public_path('assets/images/'), $filename);
+        $profile=Admin::find($id)->update(['image'=>$filename]);
+
+        if ($profile) {
+            return redirect()->back()->with('profile_changed','profile changed  successfully !');
+        }else{
+            return redirect()->back()->with('profile_error','profile picture must be in format of jpg,jpeg,png or pdf');
+        }   
+    } 
+
+    public function Myinformation(){
+        $info=Admin::all();
+        return view('users.Admin.myinformation',compact('info'));
+    }
+
+    public function EditAdminInfo($id){
+        $staffdata=Admin::find($id);
+        return view('users.Admin.EditInfo',compact('staffdata'));
+    }
+
+    function UpdateAdminInfo(Request $request,$id){
+        $data =Admin::find($id);
+        $data->firstname = $request->firstname;
+        $data->lastname = $request->lastname;
+        $data->phone = $request->phone;
+        $data->gender = $request->gender;
+        $data->email = $request->email;
+        $data->nat_id = $request->nat_id;
+        $data->save();
+        return redirect(route('AdminInformation'))->with('status','data Updated Successfully');
+    }
+
+    public function EditServiceTitle($id){
+        $data=servicetitle::find($id);
+        return view('users.Admin.EditServiceTitle',compact('data'));
+    }
+
+    public function UpdateServiceTitle(Request $request,$id){
+        $data =servicetitle::find($id);
+        $data->name = $request->name;
+        $data->save();
+        return redirect(route('servicetitle'))->with('status','data Updated Successfully');
+    }
+
+    public function EditServiceContent($ids,$id){
+        $service_title_id=$ids;
+        $data=servicecontent::find($id);
+        return view('users.Admin.EditServiceContent',compact('data','service_title_id'));
+    }
+
+    public function UpdateServiceContent(Request $request,$ids,$id){
+        $service_id=$ids;
+        $data =servicecontent::find($id);
+        $data->content = $request->content;
+        $data->save();
+        return redirect(route('ServiceContents',$service_id))->with('status','data Updated Successfully');
+    }
+
+    public function UnsolvedComplains(){
+        $data=CitizenComplain::where('forward','forwarded')->where('complains_reply','pending')->where('decision',null)->paginate(5);
+        return view('users.Admin.PendingComplains',compact('data'));
+    }
+
+    public function ViewUnsolvedComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.Admin.ViewSingleComplains',compact('complains'));
+    }
+
+    public function SolvedComplains(){
+        $data=CitizenComplain::where('complains_reply','solved')->where('decision','done')->paginate(5);
+        return view('users.Admin.SolvedComplain', compact('data'));
+    }
+
+    public function ViewSingleSolvedComplains($id){
+        $complains=CitizenComplain::all()->where('id',$id);
+        return view('users.Admin.ViewSingleSolvedComplains',compact('complains'));
+    }
+
+    public function ViewAllComplains(){
+        $data=CitizenComplain::paginate(10);
+        return view('users.Admin.AllComplains',compact('data'));
+    }
+
 }
 

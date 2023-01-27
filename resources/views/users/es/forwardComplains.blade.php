@@ -19,7 +19,7 @@
 		       </div><br>
 		@endif
 		<div class="card">
-			<div class="card-header text-center bg-info">Citizen complains</div>
+			<div class="card-header text-center bg-info">Unforwarded complains  <span class="badge badge-light float-right">{{$counts}}</span></div>
 			<div class="card-body" style="overflow:auto;">
 				<table class="table table-striped table-bordered">
 					<thead>

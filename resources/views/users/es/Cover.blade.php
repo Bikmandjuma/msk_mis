@@ -1,3 +1,6 @@
+@php
+use App\Models\CitizenComplain;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +68,15 @@
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
       <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+        <!-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search text-white"></i>
         </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
+        <div class="navbar-search-block"> -->
+        <!--
+          <form class="form-inline" method="POST" action="">
+          @csrf
             <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar w3-white" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-navbar w3-white" type="search" placeholder="Searching citizen's name or complain . . . " aria-label="Search" name="search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
                   <i class="fas fa-search"></i>
@@ -82,7 +87,7 @@
               </div>
             </div>
           </form>
-        </div>
+        </div> -->
       </li>
 
       <!-- Notifications Dropdown Menu -->

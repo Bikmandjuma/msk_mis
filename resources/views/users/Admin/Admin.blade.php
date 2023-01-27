@@ -1,61 +1,92 @@
 @extends('users.Admin.Cover')
 @section('content')
+
+@php
+use App\Models\CitizenComplain;
+use App\Models\Tasker;
+@endphp
+
 <br>
+<?php
+
+$taskers_counts=Tasker::all();
+$count_taskers=collect($taskers_counts)->count();
+
+$all_complains_counts=CitizenComplain::all();
+$count_all_complains=collect($all_complains_counts)->count();
+
+
+$pending_counts=CitizenComplain::all()->where('forward','forwarded')->where('complains_reply','pending')->where('decision',null);
+$count_pending=collect($pending_counts)->count();
+
+//count solved conmplains
+$solved_counts=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done');
+$count_solved=collect($solved_counts)->count();
+
+?>
 <div class="container">
     <div class="row">
           <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>0</h3>
-                <p>System users</p>
+            <a href="{{url('admin/staff/members')}}">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3>{{$count_taskers}}</h3>
+                  <p>System users</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-person"></i>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-ios-person"></i>
-              </div>
-            </div>
+            </a>
           </div>
           
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>0</h3>
-                <p>All Complains</p>
+            <a href="{{url('admin/view/all/complains')}}">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>{{$count_all_complains}}</h3>
+                  <p>All Complains</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-person"></i>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-ios-person"></i>
-              </div>
-            </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>0</h3>
-                <p>Solved complains</p>
+            <a href="{{url('admin/view/Solved/complains')}}">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3>{{$count_solved}}</h3>
+                  <p>Solved complains</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-ios-folder"></i>
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-ios-folder"></i>
-              </div>
-            </div>
+            </a>
           </div>
 
           <!-- ./col -->
           <div class="col-lg-3 col-6">
+            <a href="{{url('admin/pending/complain')}}">
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>0</h3>
-                <p>Unsolved complains</p>
+                <h3>{{$count_pending}}</h3>
+                <p>Pending complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
               </div>
             </div>
+            </a>
           </div>
 
     </div>

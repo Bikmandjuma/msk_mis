@@ -13,7 +13,7 @@
 		$counts=collect($data_counts)->count();
 	?>
 		<div class="card">
-			<div class="card-header text-center bg-info">Solved complains</div>
+			<div class="card-header text-center bg-info">Solved complains <span class="badge badge-light float-right">{{$counts}}</span></div>
 			<div class="card-body" style="overflow:auto;">
 				<table class="table table-striped table-bordered">
 					<thead>

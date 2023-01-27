@@ -63,27 +63,6 @@
 
     <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-     <!-- Navbar Search -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search text-white"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar w3-white" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li> -->
 
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -92,12 +71,12 @@
         </div>
 
         <div class="dropdown-menu dropdown-menu-right bg-info" style="margin-top:5px;margin-right:-40px;border:2px solid white">
-           <a href="{{url('account')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+           <a href="{{url('admin/manage/passwords')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-key mr-2"></i>
             Password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="" class="dropdown-item w3-hover-text-black w3-hover-text-black">
+          <a href="{{url('admin/manage/profiles')}}" class="dropdown-item w3-hover-text-black w3-hover-text-black">
             <i class="fas fa-image mr-2"></i>
            Profile
           </a>
@@ -155,6 +134,34 @@
             </a>
           </li>
 
+          <!--Home page management-->
+           <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Homepage
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+
+              <li class="nav-item">
+                  <a href="{{url('admin/about')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Service</p>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{route('formservice')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>News</p>
+                  </a>
+              </li>
+
+            </ul>
+
           <!--Citizen management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -182,48 +189,11 @@
               </li>
             </ul>
 
-
           </li>
 
-
-          <!--Home page management-->
-           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>
-                Homepage
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-      
-              <li class="nav-item">
-                  <a href="{{url('admin/homepage')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>home</p>
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{url('admin/about')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>About us</p>
-                  </a>
-              </li>
-
-              <li class="nav-item">
-                  <a href="{{route('formservice')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Services</p>
-                  </a>
-              </li>
-
-            </ul>
-
-
           </li>
-            <!--Arcive management-->
+          
+          <!--Arcive management-->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
@@ -243,19 +213,33 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{url('admin/view/about')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>About us</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="{{url('admin/View/Service')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Services</p>
+                  <p>News</p>
                 </a>
               </li>
 
+            </ul>
+          </li>
+
+           <!--Arcive management-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                My info
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              
+              <li class="nav-item">
+                <a href="{{url('admin/View/Info')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Myinformation</p>
+                </a>
+              </li>
             </ul>
           </li>
 

@@ -66,7 +66,7 @@
 		            </div><br>
 		    @endif
 		<div class="card">
-			<div class="card-header text-center bg-info">Services content</div>
+			<div class="card-header text-center bg-info">News content</div>
 			<div class="card-body" style="overflow:auto;">
 				<form action="{{route('CreateServices')}}" method="POST" enctype="multipart/form-data">
 				@csrf

@@ -14,11 +14,11 @@
     $data_counts=Tasker::all();
 	$counts=collect($data_counts)->count();
 ?>
-<br>
+<div class="row">
+	<div class="col-md-12 text-center" style="font-size:18px;"><b style="color:black;">Abakozi bakora mu murenge wa Masaka</b></div>
+</div><br>
 
 <div class="row">
-	<div class="col-md-12 text-center"><b>Abakozi bakora mumurenge wa Masaka</b></div>
-	
 	@foreach($es_data as $data)
 	<div class="col-md-3">
 		<div class="card" style="border:2px solid skyblue;">

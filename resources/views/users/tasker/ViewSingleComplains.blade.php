@@ -85,7 +85,7 @@
 						<div class="image-gallery">
 							<span>
 								<img src="{{asset('assets/images/'.$data->image)}}"><br>
-								<a href="{{asset('assets/images/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i> View</a>
+								<a class="float-left" href="{{asset('assets/images/'.$data->image)}}" target="parent"><i class="fa fa-eye"></i>&nbsp;View</a>
 							</span>
 						</div>
 						<?php

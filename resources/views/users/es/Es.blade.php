@@ -20,6 +20,7 @@ $cit_counts=collect($cit_comp)->count();
 //Solved complains
 $solved_comp=CitizenComplain::all()->where('complains_reply','solved')->where('decision','done');
 $solved_counts=collect($solved_comp)->count();
+
 ?>
 <div class="container">
     <div class="row">
@@ -29,7 +30,7 @@ $solved_counts=collect($solved_comp)->count();
             <div class="small-box bg-info">
               <div class="inner">
                 <h3>{{$staff_count}}</h3>
-                <p>All Staff members</p>
+                <p>All staff members</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-person"></i>
@@ -41,11 +42,11 @@ $solved_counts=collect($solved_comp)->count();
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <a href="{{url('es/citizen/complains')}}">
+            <a href="{{route('allComplain')}}">
             <div class="small-box bg-success">
               <div class="inner">
                 <h3>{{$cit_counts}}</h3>
-                <p>Citizens Complains</p>
+                <p>All complains</p>
               </div>
               <div class="icon">
                 <i class="ion ion-ios-folder"></i>
